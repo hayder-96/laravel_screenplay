@@ -27,7 +27,7 @@ Route::middleware('auth:api')->group(function(){
     
     Route::resource('screen',MainScreenController::class);
     Route::resource('scene',SceneController::class);
-    Route::get('getscene/{id}',[SceneController::class,'index'])->name('index');
+    Route::get('getscene/delete/{id}',[SceneController::class,'index']);
 
 
 
