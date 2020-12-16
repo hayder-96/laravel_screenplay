@@ -14,6 +14,20 @@ class MainScreenController extends BaseController
 {
    
 
+
+
+
+    public function getProfile($id)
+    {
+        $screen=MainScreen::where('user_id',$id)->get();
+
+        return $this->Respone(sc::collection($screen),"Done getData");
+        
+    }
+
+
+
+
     public function index()
     {
         $screen=MainScreen::where('user_id',Auth::id())->get();

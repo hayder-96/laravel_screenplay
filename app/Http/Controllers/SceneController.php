@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\MainScreen;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 
 class SceneController extends BaseController
 {
     
+
 
     public function index($id)
     {

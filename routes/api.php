@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\MainScreenController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterandLogin;
 use App\Http\Controllers\SceneController;
+use App\Http\Controllers\usersController;
+use App\Http\Controllers\UsersController as ControllersUsersController;
 use App\Models\MainScreen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\users;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,9 +31,9 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('screen',MainScreenController::class);
     Route::resource('scene',SceneController::class);
     Route::get('getscene/delete/{id}',[SceneController::class,'index']);
-
-
-
+    Route::resource('users',ProfileController::class);
+    Route::get('getusers/show/{id}',[ProfileController::class,'indexOne']);
+    Route::get('getscreenuser/show/{id}',[MainScreenController::class,'getProfile']);
 });
 
 
