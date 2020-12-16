@@ -20,9 +20,11 @@ class ProfileController extends BaseController
     public function index()
     {
        
-        $users=profile::all();
+        $users=profile::all()->where('user_id','!=',Auth::id());
 
+       
         return $this->Respone(users::collection($users),'getAll');
+    
     }
 
     public function indexOne($id)
