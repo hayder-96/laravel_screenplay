@@ -8,6 +8,7 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\UsersController as ControllersUsersController;
 use App\Models\MainScreen;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\users;
 /*
@@ -34,6 +35,8 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('users',ProfileController::class);
     Route::get('getusers/show/{id}',[ProfileController::class,'indexOne']);
     Route::get('getscreenuser/show/{id}',[MainScreenController::class,'getProfile']);
+    Route::resource('message',MessageController::class);
+    
 });
 
 
