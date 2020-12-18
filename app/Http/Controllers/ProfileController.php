@@ -27,10 +27,10 @@ class ProfileController extends BaseController
     
     }
 
-    public function indexOne($id)
+    public function indexOne()
     {
        
-        $users=profile::all()->where('user_id',$id);
+        $users=profile::all()->where('user_id',Auth::id());
 
         return $this->Respone(users::collection($users),'getOne');
     }
