@@ -33,9 +33,9 @@ class ProfileController extends BaseController
         $users=profile::all()->where('user_id',Auth::id());
 
        
-        $name=$users['name'];
+        
 
-        return $this->Respone(new users($name),'getOne');
+        return $this->Respone(new users($users),'getOne');
     }
 
    
