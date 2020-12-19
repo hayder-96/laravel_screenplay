@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\users;
-
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends BaseController
 {
@@ -30,7 +30,9 @@ class ProfileController extends BaseController
     public function indexOne()
     {
        
-        $users=profile::where('user_id',Auth::id());
+       // $users='profile';
+       $users=DB::select('select name from profiles  where user_id = ?', [Auth::id()]);
+        
 
        
         
