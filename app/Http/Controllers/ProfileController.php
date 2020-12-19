@@ -37,7 +37,7 @@ class ProfileController extends BaseController
        
         
 
-        return $this->Respone(new users($users),'getOne');
+        return $this->Respone($users,'getOne');
     }
 
    
