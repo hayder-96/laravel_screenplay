@@ -74,10 +74,6 @@ class MessageController extends BaseController
         
        
         
-        if($uss->user_id!=auth()->user()->id){
-
-            return $this->sendError("cant edit this");
-        }
 
      
         $uss->visibl=$input['visibl'];
