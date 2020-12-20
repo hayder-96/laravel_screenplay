@@ -33,7 +33,7 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('scene',SceneController::class);
     Route::get('getscene/delete/{id}',[SceneController::class,'index']);
     Route::resource('users',ProfileController::class);
-    Route::get('getusers/show/',[ProfileController::class,'indexOne']);
+    Route::get('getusers',[ProfileController::class,'indexOne']);
     Route::get('getscreenuser/show/{id}',[MainScreenController::class,'getProfile']);
     Route::resource('message',MessageController::class);
     
