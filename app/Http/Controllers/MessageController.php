@@ -44,18 +44,15 @@ class MessageController extends BaseController
 
 
 
-    public function show($id)
+    public function getMessage()
     {
      
         
-        $user=message::all()->where('name_id',$id);
+        $user=message::all()->where('name_id',Auth::id());
         return $this->Respone(sc::collection($user),'Success Show');
     }
 
-    public function edit(message $message)
-    {
-        
-    }
+    
 
     public function update(Request $request,$id)
     {
