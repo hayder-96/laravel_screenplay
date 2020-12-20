@@ -36,7 +36,7 @@ Route::middleware('auth:api')->group(function(){
     Route::get('getusers',[ProfileController::class,'indexOne']);
     Route::get('getscreenuser/show/{id}',[MainScreenController::class,'getProfile']);
     Route::resource('message',MessageController::class);
-    Route::get('Messages',[MainScreenController::class,'getMessage']);
+    Route::get('Messages',[MessageController::class,'getMessage']);
 });
 
 
