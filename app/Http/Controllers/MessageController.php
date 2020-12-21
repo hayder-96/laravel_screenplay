@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\message as sc;
+use Illuminate\Support\Facades\DB;
 class MessageController extends BaseController
 {
    
@@ -48,7 +49,8 @@ class MessageController extends BaseController
     {
      
         
-        $user=message::all()->where('name_id','=',Auth::id(),'AND','visibl','!=','yes');
+         $user=message::all()->where('name_id','=',Auth::id())->where('visibl','!=','yes');
+    
         return $this->Respone(sc::collection($user),'Success Show');
     }
 
