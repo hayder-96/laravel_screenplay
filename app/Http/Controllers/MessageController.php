@@ -48,7 +48,7 @@ class MessageController extends BaseController
     {
      
         
-        $user=message::all()->where('name_id','=',Auth::id(),'AND','visibl','!=','نعم');
+        $user=message::all()->where('name_id','=',Auth::id(),'AND','visibl','!=','yes');
         return $this->Respone(sc::collection($user),'Success Show');
     }
 
