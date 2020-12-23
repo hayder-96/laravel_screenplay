@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FriendController;
 use App\Http\Controllers\MainScreenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterandLogin;
@@ -38,6 +39,9 @@ Route::middleware('auth:api')->group(function(){
     Route::get('getscreenuser/show/{id}',[MainScreenController::class,'getProfile']);
     Route::resource('message',MessageController::class);
     Route::get('Messages',[MessageController::class,'getMessage']);
+    
+    Route::resource('friend',FriendController::class);
+    
 });
 
 

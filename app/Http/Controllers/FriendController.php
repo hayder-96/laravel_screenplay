@@ -2,33 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\message;
+use App\Models\friend as fr;
 use Illuminate\Http\Request;
+ use App\Http\Resources\freind as sc;
+use App\Http\Resources\freind;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\message as sc;
-use Illuminate\Support\Facades\DB;
-class MessageController extends BaseController
+ use Illuminate\Support\Facades\Auth;
+
+class FriendController extends BaseController
 {
-   
+    
     public function index()
     {
-        $user=message::all()->where('user_id',Auth::id());
+        
+
+        $user=fr::all()->where('user_id',Auth::id())->where('visibl','yes');
 
         return $this->Respone(sc::collection($user),'Success Show');
 
+
     }
 
-   
     public function store(Request $request)
     {
-      
         
         $input=$request->all();
-
+     
         $valdit=Validator::make($request->all(),[
+            'id'=>'required',
+        'user_id'=>'required',
         'name_id'=>'required',
+        'country'=>'required',
         'name'=>'required'
+       
+
+
+
         
         ]);
 
@@ -38,29 +47,25 @@ class MessageController extends BaseController
         }
         $user=Auth::user();
         $input['user_id']=$user->id;
-        $allUsers=message::create($input);
+        $allUsers=fr::create($input);
         return $this->Respone($allUsers,'Success input');
 
     }
 
 
 
-    public function getMessage()
-    {
-     
-        
-         $user=message::all()->where('name_id','=',Auth::id())->where('visibl','!=','yes');
-    
-        return $this->Respone(sc::collection($user),'Success Show');
-    }
 
-    
+
+
+   
+    public function show($id)
+    {
+        //
+    }
 
     public function update(Request $request,$id)
     {
-        
-
-        $uss=message::find($id);
+        $uss=fr::find($id);
         $input=$request->all();
 
         $valdit=Validator::make($request->all(),[
@@ -80,12 +85,15 @@ class MessageController extends BaseController
         
     }
 
+    
 
-
-
-    public function destroy(message $message)
+   
+    public function destroy($id)
     {
-        //
+        $uss=fr::find($id);
+      
+       $uss->delete();
+        return $this->Respone(new sc($uss),"done delete");
+        }
     }
 
-}
