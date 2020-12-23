@@ -20,7 +20,7 @@ class ProfileController extends BaseController
     public function indexyes($id)
     {
        
-        $users=profile::all()->where('user_id','=',$id);
+        $users=profile::all()->where('user_id','=',$id)->where('user_id','!=',Auth::id());
 
        
         return $this->Respone(users::collection($users),'getAll');
