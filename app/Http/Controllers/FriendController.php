@@ -33,11 +33,6 @@ class FriendController extends BaseController
         'name_id'=>'required',
         'country'=>'required',
         'name'=>'required'
-       
-
-
-
-        
         ]);
 
         if($valdit->fails()){
@@ -46,6 +41,34 @@ class FriendController extends BaseController
         }
         $user=Auth::user();
         $input['user_id']=$user->id;
+        $allUsers=fr::create($input);
+        return $this->Respone($allUsers,'Success input');
+
+    }
+
+
+
+
+
+
+    public function input(Request $request)
+    {
+        
+        $input=$request->all();
+     
+        $valdit=Validator::make($request->all(),[
+            'id'=>'required',
+        'user_id'=>'required',
+        'country'=>'required',
+        'name'=>'required'
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+        $user=Auth::user();
+        $input['name_id']=$user->id;
         $allUsers=fr::create($input);
         return $this->Respone($allUsers,'Success input');
 
