@@ -30,7 +30,6 @@ class FriendController extends BaseController
      
         $valdit=Validator::make($request->all(),[
             'id'=>'required',
-        'user_id'=>'required',
         'name_id'=>'required',
         'country'=>'required',
         'name'=>'required'
