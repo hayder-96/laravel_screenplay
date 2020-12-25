@@ -41,7 +41,7 @@ Route::middleware('auth:api')->group(function(){
     Route::get('Messages',[MessageController::class,'getMessage']);
     
     Route::resource('friend',FriendController::class);
-    Route::get('getfriend',[FriendController::class,'input']);
+    Route::post('getfriend',[FriendController::class,'input']);
 });
 
 
