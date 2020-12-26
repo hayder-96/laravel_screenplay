@@ -42,7 +42,7 @@ Route::middleware('auth:api')->group(function(){
     
     Route::resource('friend',FriendController::class);
     Route::post('getfriend',[FriendController::class,'input']);
-    Route::get('getitemfriend/{id}',[FriendController::class,'getItem']);
+    Route::get('getitemfriend/show/{id}',[FriendController::class,'getItem']);
 });
 
 
