@@ -83,9 +83,12 @@ class MessageController extends BaseController
 
 
 
-    public function destroy(message $message)
+    public function destroy($id)
     {
-        //
+        $uss=message::find($id);
+      
+        $uss->delete();
+         return $this->Respone(new sc($uss),"done delete");
     }
 
 }
