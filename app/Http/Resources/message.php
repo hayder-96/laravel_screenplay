@@ -23,7 +23,7 @@ class message extends JsonResource
          'name_id'=>$this->name_id,
          'name'=>$this->name,
          'visibl'=>$this->visibl,
-         
+          'enable'=>$this->enable
     ];
     }
     

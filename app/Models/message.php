@@ -14,7 +14,7 @@ class message extends Model
         'name_id',
         'name',
         'visibl',
-       
+         'enable'
     ];
 
 

@@ -28,8 +28,8 @@ class MessageController extends BaseController
 
         $valdit=Validator::make($request->all(),[
         'name_id'=>'required',
-        'name'=>'required'
-        
+        'name'=>'required',
+        'enable'=>'required'
         ]);
 
         if($valdit->fails()){
