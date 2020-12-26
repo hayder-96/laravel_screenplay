@@ -123,7 +123,7 @@ class FriendController extends BaseController
 
             $user=fr::all()->where('name_id',Auth::id())->where('user_id',$id);
 
-            return $this->Respone(new sc($user),"done getItem");
+            return $this->Respone( sc::collection($user),"done getItem");
 
         }
     }
