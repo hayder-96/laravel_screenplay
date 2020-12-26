@@ -117,5 +117,14 @@ class FriendController extends BaseController
        $uss->delete();
         return $this->Respone(new sc($uss),"done delete");
         }
+
+
+        public function getItem($id){
+
+            $user=fr::all()->where('name_id',Auth::id())->where('user_id',$id);
+
+            return $this->Respone(new sc($user),"done getItem");
+
+        }
     }
 

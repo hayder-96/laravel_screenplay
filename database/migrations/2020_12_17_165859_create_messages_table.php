@@ -21,7 +21,7 @@ class CreateMessagesTable extends Migration
             $table->integer('name_id');
             $table->string('name');
             $table->string('visibl')->nullable();
-            $table->boolean('enable');
+            $table->string('enable');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
