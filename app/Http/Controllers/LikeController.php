@@ -46,7 +46,7 @@ class LikeController extends BaseController
     {
         $lk=like::count();
        // $lik=$lk->count();
-        return $this->Respone(new sc($lk),'Done get count');
+        return $this->Respone(sc::collection($lk),'Done get count');
     }
 
     public function edit(like $like)
