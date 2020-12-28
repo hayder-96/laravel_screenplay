@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FriendController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MainScreenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterandLogin;
@@ -43,6 +44,11 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('friend',FriendController::class);
     Route::post('getfriend',[FriendController::class,'input']);
     Route::get('getitemfriend/show/{id}',[FriendController::class,'getItem']);
+
+
+    Route::resource('like',LikeController::class);
+    Route::get('getlike/show/{id}',[LikeController::class,'index']);
+
 });
 
 
