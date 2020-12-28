@@ -43,7 +43,7 @@ class LikeController extends BaseController
 
     public function getcount($id)
     {
-        $lk=like::count()->where('main_screen_id',$id);
+        $lk=like::count()->where('main_screen_id',$id)->get();
         return $this->Respone(sc::collection($lk),'Done get count');
     }
 
