@@ -23,5 +23,12 @@ class like extends Model
     {
         return $this->belongsTo('App\Models\MainScreen');
     }
+
+    
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+    
     
 }

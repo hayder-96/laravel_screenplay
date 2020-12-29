@@ -13,13 +13,25 @@ use Illuminate\Support\Facades\DB;
 class LikeController extends BaseController
 {
    
-    public function index($id)
+    public function getcount($id)
     {
         $lik=like::all()->where('main_screen_id',$id);
 
         
         return $this->Respone(sc::collection($lik),'Success Show');
     }
+
+    public function index()
+    {
+        $lik=like::all()->where('user_id',Auth::id());
+      
+        return $this->Respone(sc::collection($lik),'Done get count');
+    }
+
+
+
+
+
 
     
     public function store(Request $request)
@@ -37,18 +49,15 @@ class LikeController extends BaseController
             return $this->sendError('Failed input',$valdit->errors());
         }
      
+        $user=Auth::user();
+
+        $input['user_id']=$user->id;
         $allUsers=like::create($input);
         return $this->Respone($allUsers,'Success input');
 
     }
 
-    public function getcount($id)
-    {
-        $lk=like::count();
-       // $lik=$lk->count();
-        return $this->Respone(sc::collection($lk),'Done get count');
-    }
-
+  
     public function edit(like $like)
     {
         //

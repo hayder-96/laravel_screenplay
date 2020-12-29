@@ -15,19 +15,16 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('main_screen_id');
+            $table->unsignedBigInteger('main_screen_id');
             $table->string('name');
             $table->string('image');
             $table->string('country');
+            $table->integer('user_id');
+            $table->foreign('main_screen_id')->references('id')->on('main_screens')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('likes');
