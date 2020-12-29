@@ -48,7 +48,7 @@ Route::middleware('auth:api')->group(function(){
 
     Route::resource('like',LikeController::class);
     Route::get('getlike/show/{id}',[LikeController::class,'getcount']);
-    
+    Route::get('getlikeuser/show/{id}',[LikeController::class,'index']);
 });
 
 

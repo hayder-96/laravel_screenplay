@@ -20,6 +20,7 @@ class CreateLikesTable extends Migration
             $table->string('image');
             $table->string('country');
             $table->integer('user_id');
+            $table->string('boolean');
             $table->foreign('main_screen_id')->references('id')->on('main_screens')->onDelete('cascade');
             $table->timestamps();
         });

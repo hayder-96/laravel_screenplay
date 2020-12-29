@@ -21,9 +21,9 @@ class LikeController extends BaseController
         return $this->Respone(sc::collection($lik),'Success Show');
     }
 
-    public function index()
+    public function index($id)
     {
-        $lik=like::all()->where('user_id',Auth::id());
+        $lik=like::all()->where('user_id',Auth::id())->where('main_screen_id',$id);
       
         return $this->Respone(sc::collection($lik),'Done get count');
     }
@@ -41,7 +41,8 @@ class LikeController extends BaseController
         $valdit=Validator::make($request->all(),[
         'main_screen_id'=>'required',
         'name'=>'required',
-        'country'=>'required'
+        'country'=>'required',
+        'boolean'=>'required'
         ]);
 
         if($valdit->fails()){

@@ -15,7 +15,8 @@ class like extends Model
         'name',
         'image',
         'country',
-        'user_id'
+        'user_id',
+        'boolean'
     ];
 
 
