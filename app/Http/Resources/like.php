@@ -23,6 +23,7 @@ class like extends JsonResource
          'name'=>$this->name,
          'country'=>$this->country,
          'image'=>$this->image,
+         'boolean'=>$this->boolean
          
          
     ];
