@@ -50,7 +50,7 @@ class LikeController extends BaseController
         }
      
         $user=Auth::user();
-
+        
         $input['user_id']=$user->id;
         $allUsers=like::create($input);
         return $this->Respone($allUsers,'Success input');

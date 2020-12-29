@@ -14,7 +14,8 @@ class like extends Model
         'main_screen_id',
         'name',
         'image',
-        'country'
+        'country',
+        'user_id'
     ];
 
 
