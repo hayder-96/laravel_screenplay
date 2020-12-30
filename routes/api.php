@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MainScreenController;
@@ -13,16 +14,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\users;
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
 Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
@@ -49,6 +40,14 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('like',LikeController::class);
     Route::get('getlike/show/{id}',[LikeController::class,'getcount']);
     Route::get('getlikeuser/show/{id}',[LikeController::class,'index']);
+
+
+
+    Route::resource('comment',CommentController::class);
+
+
+    Route::get('getcomment/show/{id}',[CommentController::class,'index']);
+    Route::get('getitemcomment/show/{id}',[CommentController::class,'indexcom']);
 });
 
 
