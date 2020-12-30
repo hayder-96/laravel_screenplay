@@ -36,7 +36,8 @@ class CommentController extends BaseController
         $valdit=Validator::make($request->all(),[
            
             'descreption'=>'required',
-        
+              'name'=>'required',
+              'image'=>'required',
         ]);
 
         if($valdit->fails()){

@@ -22,7 +22,9 @@ class comment extends JsonResource
          'user_id'=>$this->user_id,
          'parent_id'=>$this->parent_id,
          'descreption'=>$this->descreption,
-             
+             'name'=>$this->name,
+             'image'=>$this->image,
+             'created_at'=>$this->created_at->format('d/m/Y'),
     ];
     }
 }

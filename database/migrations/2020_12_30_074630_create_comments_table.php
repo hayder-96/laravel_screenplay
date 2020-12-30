@@ -19,6 +19,8 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('main_screen_id');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->longText('descreption');
+            $table->string('image');
+            $table->string('name');
             $table->foreign('main_screen_id')->references('id')->on('main_screens')->onDelete('cascade');
             $table->foreign('parent_id')->references('id')->on('comments')->onDelete('cascade');
             $table->timestamps();

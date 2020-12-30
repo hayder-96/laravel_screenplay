@@ -15,7 +15,8 @@ class comment extends Model
         'main_screen_id',
         'parent_id',
         'descreption',
-        
+        'name',
+        'image'
     ];
 
     
