@@ -26,6 +26,15 @@ class CommentController extends BaseController
     }
 
 
+    
+    public function indexx()
+    {
+        
+        $com=comment::all()->where('user_id',Auth::id());
+        return $this->Respone(SC::collection($com),'success input');
+    }
+
+
 
 
     public function store(Request $request)
@@ -64,4 +73,52 @@ class CommentController extends BaseController
          return $this->Respone(new sc($uss),"done delete");
         
     }
+
+
+
+
+    public function show($id)
+    {
+        
+        $screen=comment::find($id);
+
+        if($screen==null){
+
+            $this->sendError('Failed show');
+        }
+        
+        return $this->Respone(new sc($screen),'Success Show');
+
+    }
+    
+    public function update(Request $request,$id)
+    {
+        $uss=comment::find($id);
+        $input=$request->all();
+
+        $valdit=Validator::make($request->all(),[
+
+            'descreption'=>'required'
+            
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+
+        
+        if($uss->user_id!=auth()->user()->id){
+
+            return $this->sendError("cant edit this");
+        }
+
+        $uss->descreption=$input['descreption'];
+        $uss->user_id=Auth::id();
+        $uss->save();
+
+        return $this->Respone(new sc($uss),'Success update');
+        
+    }
+
 }
