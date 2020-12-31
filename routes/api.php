@@ -46,7 +46,7 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('comment',CommentController::class);
 
 
-    Route::get('getcomment/show/{id}',[CommentController::class,'index']);
+    Route::get('getcomment/show/{id}',[CommentController::class,'indexx']);
     Route::get('getitemcomment/show/{id}',[CommentController::class,'indexcom']);
 });
 

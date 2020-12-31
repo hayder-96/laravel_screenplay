@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class CommentController extends BaseController
 {
    
-    public function index($id)
+    public function indexx($id)
     {
         
         $com=comment::all()->where('main_screen_id',$id)->where('parent_id',null);
@@ -27,7 +27,7 @@ class CommentController extends BaseController
 
 
     
-    public function indexx()
+    public function index()
     {
         
         $com=comment::all()->where('user_id',Auth::id());
