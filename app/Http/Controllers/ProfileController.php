@@ -112,7 +112,6 @@ class ProfileController extends BaseController
 
             'name'=>'required',
             'age'=>'required',
-            'gender'=>'required',
             'country'=>'required'
            
         ]);
@@ -134,7 +133,7 @@ class ProfileController extends BaseController
         $uss->age=$input['age'];
         $uss->gender=$input['gender'];
         $uss->country=$input['country'];
-        $uss->image=$input['image'];
+       // $uss->image=$input['image'];
         $uss->user_id=Auth::id();
         $uss->save();
 
