@@ -110,9 +110,9 @@ class ProfileController extends BaseController
 
         $valdit=Validator::make($request->all(),[
 
-            'name'=>'required',
-            'age'=>'required',
-            'country'=>'required'
+            // 'name'=>'required',
+            // 'age'=>'required',
+            // 'country'=>'required'
            
         ]);
 
