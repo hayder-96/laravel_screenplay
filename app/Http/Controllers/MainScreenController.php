@@ -40,12 +40,7 @@ class MainScreenController extends BaseController
     public function store(Request $request)
     {
         
-        $this->validate($request,[
-            'title'=>'required'
-          
-            
-        ]);
-
+       
 
 
         $photo=$request->image;
