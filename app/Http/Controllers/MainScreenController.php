@@ -62,10 +62,6 @@ class MainScreenController extends BaseController
 
 
 
-        // $fil='myphoto';
-        // $photo=$request->file('image');
-        // $image_uploaded=$photo->store($fil,'public');
-
         
         $user=Auth::user();
         
@@ -74,12 +70,7 @@ class MainScreenController extends BaseController
 
         $screen=MainScreen::create($input);
 
-        // $screen=MainScreen::create([
-        //     'user_id'=>Auth::id(),
-        //     'title'=>$request->title,
-        //     'image'=>$request->image
-           
-        //    ]);
+       
 
         return $this->Respone($screen,'Success input');
         
