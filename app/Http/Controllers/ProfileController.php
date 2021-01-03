@@ -110,9 +110,9 @@ class ProfileController extends BaseController
 
         $valdit=Validator::make($request->all(),[
 
-            // 'name'=>'required',
-            // 'age'=>'required',
-            // 'country'=>'required'
+            'name'=>'required',
+            'age'=>'required',
+            'country'=>'required'
            
         ]);
 
@@ -132,11 +132,62 @@ class ProfileController extends BaseController
         $uss->name=$input['name'];
         $uss->age=$input['age'];
         $uss->country=$input['country'];
-        $uss->image=$input['image'];
         $uss->user_id=Auth::id();
         $uss->save();
 
         return $this->Respone(new users($uss),'Success update');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    public function updateimage(Request $request, $id)
+    {
+        
+
+        $uss=profile::find($id);
+        $input=$request->all();
+
+        $valdit=Validator::make($request->all(),[
+
+            'image'=>'required'
+           
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+
+        
+       
+        
+        if($uss->user_id!=auth()->user()->id){
+
+            return $this->sendError("cant edit this");
+        }
+
+      
+        $uss->image=$input['image'];
+        $uss->save();
+
+        return $this->Respone(new users($uss),'Success update');
+    }
+
+
+
+
+
+
 
 }

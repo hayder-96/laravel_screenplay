@@ -27,6 +27,12 @@ Route::middleware('auth:api')->group(function(){
     Route::get('getscene/delete/{id}',[SceneController::class,'index']);
     Route::resource('users',ProfileController::class);
     Route::get('getusers',[ProfileController::class,'indexOne']);
+
+    Route::put('getimage/{id}',[ProfileController::class,'updateimage']);
+
+
+
+
     Route::get('getusersyes/{id}',[ProfileController::class,'indexyes']);
     Route::get('getscreenuser/show/{id}',[MainScreenController::class,'getProfile']);
     Route::resource('message',MessageController::class);
