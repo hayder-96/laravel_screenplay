@@ -42,8 +42,8 @@ class MainScreenController extends BaseController
         
         $valdit=Validator::make($request->all(),[
           
-            'title'=>'required'
-           
+            'title'=>'required',
+            'image'=>'required|image',
            
         ]);
 
