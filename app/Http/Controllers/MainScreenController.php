@@ -40,12 +40,17 @@ class MainScreenController extends BaseController
     public function store(Request $request)
     {
         
-       
+        $this->validate($request,[
+            'title'=>'required'
+          
+            
+        ]);
+
 
 
         $photo=$request->image;
         $newphoto=time().$photo->getClientOriginalName();
-        $photo->move('uploads',$newphoto);
+        $photo->move('uploads.posts',$newphoto);
 
 
 
@@ -54,7 +59,7 @@ class MainScreenController extends BaseController
         $screen=MainScreen::create([
             'user_id'=>Auth::id(),
             'title'=>$request->title,
-            'image'=>'uploads/'.$newphoto,
+            'image'=>'uploads.posts/'.$newphoto,
            
             
            ]);
