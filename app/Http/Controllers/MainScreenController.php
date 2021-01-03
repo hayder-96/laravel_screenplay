@@ -39,6 +39,8 @@ class MainScreenController extends BaseController
 
     public function store(Request $request)
     {
+
+        $input=$request->all();
         
         $valdit=Validator::make($request->all(),[
           
@@ -64,15 +66,20 @@ class MainScreenController extends BaseController
         // $photo=$request->file('image');
         // $image_uploaded=$photo->store($fil,'public');
 
+        
+        $user=Auth::user();
+        
+        $input['user_id']=$user->id;
 
 
+        $screen=MainScreen::create($input);
 
-        $screen=MainScreen::create([
-            'user_id'=>Auth::id(),
-            'title'=>$request->title,
-            'image'=>$request->image
+        // $screen=MainScreen::create([
+        //     'user_id'=>Auth::id(),
+        //     'title'=>$request->title,
+        //     'image'=>$request->image
            
-           ]);
+        //    ]);
 
         return $this->Respone($screen,'Success input');
         
