@@ -43,7 +43,7 @@ class MainScreenController extends BaseController
         $valdit=Validator::make($request->all(),[
           
             'title'=>'required',
-            'image'=>'required|image',
+           
            
         ]);
 
@@ -54,10 +54,15 @@ class MainScreenController extends BaseController
 
 
 
-        $photo=$request->image;
-        $newphoto=time().$photo->getClientOriginalName();
-        $photo->move('uploads.posts',$newphoto);
+        // $photo=$request->image;
+        // $newphoto=time().$photo->getClientOriginalName();
+        // $photo->move('uploads.posts',$newphoto);
 
+
+
+        $fil='myphoto';
+        $photo=$request->file('image');
+        $image_uploaded=$photo->store($fil,'public');
 
 
 
@@ -65,7 +70,7 @@ class MainScreenController extends BaseController
         $screen=MainScreen::create([
             'user_id'=>Auth::id(),
             'title'=>$request->title,
-            'image'=>'uploads.posts/'.$newphoto,
+            'image'=>basename($image_uploaded),
            
            ]);
 
