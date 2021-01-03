@@ -6,6 +6,7 @@ use App\Models\MainScreen;
 use Illuminate\Http\Request;
 use App\Http\Resources\screen as sc;
 use App\Http\Resources\screen;
+use App\Models\profile;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -39,19 +40,12 @@ class MainScreenController extends BaseController
     public function store(Request $request)
     {
         
-        $input=$request->all();
-
-        $valdit=Validator::make($request->all(),[
-
-            'title'=>'required',
-            
+        $this->validate($request,[
+            'title'=>'required'
+          
             
         ]);
 
-        if($valdit->fails()){
-
-            return $this->sendError('Failed input',$valdit->errors());
-        }
 
 
         $photo=$request->image;
@@ -62,11 +56,13 @@ class MainScreenController extends BaseController
 
 
 
-        $user=Auth::user();
-        
-        $input['user_id']=$user->id;
-         $input['image']='uploads.posts/'.$newphoto;
-        $screen=MainScreen::create($input);
+        $screen=MainScreen::create([
+            'user_id'=>Auth::id(),
+            'title'=>$request->title,
+            'image'=>'uploads'.$newphoto,
+           
+            
+           ]);
 
         return $this->Respone($screen,'Success input');
         
