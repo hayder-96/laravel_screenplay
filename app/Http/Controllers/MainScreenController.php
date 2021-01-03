@@ -53,10 +53,19 @@ class MainScreenController extends BaseController
             return $this->sendError('Failed input',$valdit->errors());
         }
 
+
+        $photo=$request->image;
+        $newphoto=time().$photo->getClientOriginalName();
+        $photo->move('uploads',$newphoto);
+
+
+
+
+
         $user=Auth::user();
         
         $input['user_id']=$user->id;
-
+         $input['image']='uploads.posts/'.$newphoto;
         $screen=MainScreen::create($input);
 
         return $this->Respone($screen,'Success input');
