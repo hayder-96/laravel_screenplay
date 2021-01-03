@@ -56,11 +56,6 @@ class MainScreenController extends BaseController
 
 
 
-        $photo=$request->image;
-        $newphoto=time().$photo->getClientOriginalName();
-        $photo->move('public/uploads.posts',$newphoto);
-
-
 
         
         $user=Auth::user();
