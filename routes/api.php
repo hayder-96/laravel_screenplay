@@ -23,12 +23,14 @@ Route::middleware('auth:api')->group(function(){
 
     
     Route::resource('screen',MainScreenController::class);
+    Route::post('getimage',[MainScreenController::class,'storeimage']);
+
     Route::resource('scene',SceneController::class);
     Route::get('getscene/delete/{id}',[SceneController::class,'index']);
     Route::resource('users',ProfileController::class);
     Route::get('getusers',[ProfileController::class,'indexOne']);
 
-    Route::put('getimage/{id}',[ProfileController::class,'updateimage']);
+    
 
 
 

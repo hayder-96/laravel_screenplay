@@ -11,6 +11,8 @@ use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+
 class MainScreenController extends BaseController
 {
    
@@ -142,8 +144,32 @@ class MainScreenController extends BaseController
        $uss->delete();
         return $this->Respone(new sc($uss),"done delete");
         }
+
+
+
+
+        public function storeimage(Request $request){
+
+
+
+            $uploadFolder = 'users';
+            $image = $request->file('image');
+            $image_uploaded_path = $image->store($uploadFolder, 'public');
+            $uploadedImageResponse = array(
+               "image_name" => basename($image_uploaded_path),
+               "image_url" => Storage::disk('public'),
+               "mime" => $image->getClientMimeType()
+            );
+            return $this->Respone($uploadedImageResponse,'File Uploaded Successfully');
+           }
+
+
+
+
+
+        }
         
-    }
+    
 
 
 
