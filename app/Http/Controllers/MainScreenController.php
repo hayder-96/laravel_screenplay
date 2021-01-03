@@ -40,11 +40,17 @@ class MainScreenController extends BaseController
     public function store(Request $request)
     {
         
-        $this->validate($request,[
-            'title'=>'required'
+        $valdit=Validator::make($request->all(),[
           
-            
+            'title'=>'required'
+           
+           
         ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
 
 
 
@@ -61,7 +67,6 @@ class MainScreenController extends BaseController
             'title'=>$request->title,
             'image'=>'uploads.posts/'.$newphoto,
            
-            
            ]);
 
         return $this->Respone($screen,'Success input');
