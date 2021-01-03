@@ -70,7 +70,7 @@ class MainScreenController extends BaseController
         $screen=MainScreen::create([
             'user_id'=>Auth::id(),
             'title'=>$request->title,
-            'image'=>'public/uploads.posts/'.$newphoto
+            'image'=>$request->image
            
            ]);
 
