@@ -52,8 +52,10 @@
 
         "post-install-cmd":
         [
-           
-            "ln -sr storage / app / public public / storage"
+            "php artisan clear-compiled",
+            "chmod -R 777 storage",
+            "php artisan passport:keys"
+            
         ],
 
 
