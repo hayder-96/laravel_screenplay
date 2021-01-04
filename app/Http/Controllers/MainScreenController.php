@@ -67,7 +67,7 @@ class MainScreenController extends BaseController
 
 
 
-       $photo->move('upload/posts/',$filename);
+       $photo->move('upload',$filename);
 
 
 
