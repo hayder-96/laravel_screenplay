@@ -63,7 +63,7 @@ class MainScreenController extends BaseController
 
 
 
-       $path=Storage::disk('public')->put('uploads.posts/',$newphoto);
+       $path=Storage::disk('s3')->put('uploads.posts/',$newphoto,'public');
 
 
 
