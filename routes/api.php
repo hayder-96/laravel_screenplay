@@ -18,11 +18,11 @@ use App\Http\Controllers\users;
 Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
 
-
+Route::resource('screen',MainScreenController::class);
 Route::middleware('auth:api')->group(function(){
 
     
-    Route::resource('screen',MainScreenController::class);
+    
     Route::post('getimage',[MainScreenController::class,'storeimage']);
 
     Route::resource('scene',SceneController::class);
