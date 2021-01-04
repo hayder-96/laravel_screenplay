@@ -60,7 +60,7 @@ class MainScreenController extends BaseController
 
         $photo=$request->file('image');
         $newphoto=time().$photo->getClientOriginalName();
-        $photo->move('uploads.posts',$newphoto);
+        $photo->move('public/uploads.posts',$newphoto);
 
 
 
@@ -68,7 +68,7 @@ class MainScreenController extends BaseController
         $user=Auth::user();
         
         $input['user_id']=$user->id;
-         $input['image']='uploads.posts/'.$newphoto;
+         $input['image']='public/uploads.posts/'.$newphoto;
 
         $screen=MainScreen::create($input);
 
