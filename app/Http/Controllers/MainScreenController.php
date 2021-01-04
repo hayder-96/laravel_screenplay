@@ -61,7 +61,7 @@ class MainScreenController extends BaseController
 
         $photo=$request->image;
         $newphoto=time().$photo->getClientOriginalName();
-        $photo->move('upload',$newphoto);
+        $photo->move('public\upload',$newphoto);
 
 
         
