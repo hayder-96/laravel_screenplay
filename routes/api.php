@@ -19,6 +19,7 @@ Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
 
 
+
 Route::middleware('auth:api')->group(function(){
 
     
