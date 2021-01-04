@@ -57,18 +57,21 @@ class MainScreenController extends BaseController
         }
 
 
-
-
         $photo=$request->image;
         $newphoto=time().$photo->getClientOriginalName();
-        $photo->move('uploads.posts',$newphoto);
+       // $photo->move('uploads.posts',$newphoto);
+
+
+
+       $path=Storage::disk('public')->put('uploads.posts/',$newphoto);
+
 
 
         
         $user=Auth::user();
         
         $input['user_id']=$user->id;
-         $input['image']='uploads.posts/'.$newphoto;
+         $input['image']=$path;
 
         $screen=MainScreen::create($input);
 

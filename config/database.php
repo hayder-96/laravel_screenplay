@@ -64,20 +64,6 @@ return [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // 'mysql' => [
         //     'driver' => 'mysql',
         //     'url' => env('DATABASE_URL'),
