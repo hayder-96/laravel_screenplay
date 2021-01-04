@@ -60,14 +60,25 @@ class MainScreenController extends BaseController
 
 
 
-       $photo=$request->file('image');
-        $newphoto=$photo->getClientOriginalName();
+    //    $photo=$request->file('image');
+    //     $newphoto=$photo->getClientOriginalName();
         
-        $filename=time().'.'.$newphoto;
+    //     $filename=time().'.'.$newphoto;
 
 
 
-       $photo->move('upload',$filename);
+    //    $photo->move('upload',$filename);
+
+
+
+    $imgUrl = $request->get('image');
+    $fileName = array_pop(explode(DIRECTORY_SEPARATOR, $imgUrl));
+    $image = file_get_contents($imgUrl);
+
+    $destinationPath = base_path() . '/public/upload/'. $fileName;
+
+    file_put_contents($destinationPath, $image);
+
 
 
 
@@ -75,7 +86,7 @@ class MainScreenController extends BaseController
         $user=Auth::user();
         
         $input['user_id']=$user->id;
-         $input['image']=$filename;
+         $input['image']=$fileName;
 
         $screen=MainScreen::create($input);
 
