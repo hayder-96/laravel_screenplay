@@ -18,13 +18,13 @@ use App\Http\Controllers\users;
 Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
 
-Route::resource('screen',MainScreenController::class);
+
 Route::middleware('auth:api')->group(function(){
 
     
     
     Route::post('getimage',[MainScreenController::class,'storeimage']);
-
+    Route::resource('screen',MainScreenController::class);
     Route::resource('scene',SceneController::class);
     Route::get('getscene/delete/{id}',[SceneController::class,'index']);
     Route::resource('users',ProfileController::class);
