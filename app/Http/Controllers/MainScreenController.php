@@ -70,9 +70,9 @@ class MainScreenController extends BaseController
       // $path=cloudinary()->upload($request->file($photo)->getRealPath())->getSecurePath();
       $path= Cloudinary::upload($photo->getRealPath())->getSecurePath();
        //dd($photo);
-       $newphoto=time().$path->getClientOriginalName();
+       $newphoto=time().$photo->getClientOriginalName();
       // $path=Storage::put('uploads.posts/',$newphoto);
-
+     // $fileName = $request->file('file')->getClientOriginalName();
         
    // $pa=cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
         
