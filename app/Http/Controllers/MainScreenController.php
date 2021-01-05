@@ -11,11 +11,11 @@ use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
-use Cloudinary\Cloudinary;
 use Illuminate\Support\Facades\Storage;
 use Cloudinary\Api\Upload\UploadApi;
 use Illuminate\Http\UploadedFile;
-use Cloudinary\Api\Upload;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
 class MainScreenController extends BaseController
 {
    
@@ -66,11 +66,11 @@ class MainScreenController extends BaseController
 
       //$path=(new UploadApi())->upload($newphoto);
 
-       $path=Cloudinary::upload($newphoto)->getRealPath()->getSecurePath();
+       $path=cloudinary()->upload($newphoto)->getRealPath()->getSecurePath();
          
       // $path=Storage::put('uploads.posts/',$newphoto);
 
-
+        
 
         
         $user=Auth::user();
