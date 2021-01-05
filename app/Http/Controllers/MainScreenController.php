@@ -66,7 +66,7 @@ class MainScreenController extends BaseController
 
       //$path=(new UploadApi())->upload($newphoto);
 
-       $path=cloudinary()->upload($newphoto)->getRealPath()->getSecurePath();
+       $path=cloudinary()->upload($request->file($photo)->getRealPath())->getSecurePath();
          
       // $path=Storage::put('uploads.posts/',$newphoto);
 
