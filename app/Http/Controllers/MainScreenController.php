@@ -15,7 +15,7 @@ use Cloudinary\Cloudinary;
 use Illuminate\Support\Facades\Storage;
 use Cloudinary\Api\Upload\UploadApi;
 use Illuminate\Http\UploadedFile;
-
+use Cloudinary\Api\Upload;
 class MainScreenController extends BaseController
 {
    
