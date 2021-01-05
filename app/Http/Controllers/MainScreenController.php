@@ -73,12 +73,12 @@ class MainScreenController extends BaseController
       // $path=Storage::put('uploads.posts/',$newphoto);
 
         
-      $pa=stringValue($path);
+   // $pa=cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
         
         $user=Auth::user();
         
         $input['user_id']=$user->id;
-         $input['image']=$pa;
+         $input['image']="po".$path;
 
         $screen=MainScreen::create($input);
 
