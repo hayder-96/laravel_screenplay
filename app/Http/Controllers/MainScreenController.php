@@ -62,7 +62,7 @@ class MainScreenController extends BaseController
 
         $photo=$request->image;
         
-       // $newphoto=$photo->getClientOriginalName();
+        
        // $photo->move('uploads.posts',$newphoto);
              
       //$path=(new UploadApi())->upload($newphoto);
@@ -70,6 +70,7 @@ class MainScreenController extends BaseController
       // $path=cloudinary()->upload($request->file($photo)->getRealPath())->getSecurePath();
       $path= Cloudinary::upload($photo->getRealPath())->getSecurePath();
        dd($photo);
+       $newphoto=time().$path->getClientOriginalName();
       // $path=Storage::put('uploads.posts/',$newphoto);
 
         
@@ -78,7 +79,7 @@ class MainScreenController extends BaseController
         $user=Auth::user();
         
         $input['user_id']=$user->id;
-         
+         $input['image']=$newphoto;
 
         $screen=MainScreen::create($input);
 
