@@ -60,7 +60,7 @@ class MainScreenController extends BaseController
         }
 
 
-        $photo=$request->file('image');
+        $photo=$request->image;
         
         
        // $photo->move('uploads.posts',$newphoto);
