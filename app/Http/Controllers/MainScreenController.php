@@ -60,7 +60,11 @@ class MainScreenController extends BaseController
         }
 
 
+
         $photo=$request->file('image');
+        
+
+        
         
        
         
@@ -86,7 +90,7 @@ class MainScreenController extends BaseController
 
        
 
-        return $this->Respone($screen,'Success input');
+        return $this->Respone($screen,$photo);
         
     }
 
