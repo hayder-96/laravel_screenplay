@@ -61,7 +61,7 @@ class MainScreenController extends BaseController
 
 
 
-        $photo=$request->file('image');
+      //  $photo=$request->file('image');
         
 
         
