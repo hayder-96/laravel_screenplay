@@ -128,8 +128,8 @@ class MainScreenController extends BaseController
 
         $valdit=Validator::make($request->all(),[
 
-            'title'=>'required',
-            'image'=>'required'
+            'title'=>'required'
+            
         ]);
 
         if($valdit->fails()){
@@ -153,10 +153,10 @@ class MainScreenController extends BaseController
         $po=$request->image;
         $path= Cloudinary::upload($po->getRealPath())->getSecurePath();
         $uss->image=$path;
-       }else{
-        $uss->image=$request->image;
-       }
-       
+    //    }else{
+    //     $uss->image=$request->image;
+    //    }
+    }
 
         
        
