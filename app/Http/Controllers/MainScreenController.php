@@ -144,26 +144,8 @@ class MainScreenController extends BaseController
         }
 
 
-    //    $po=Cloudinary::find($uss->image);
-
-      
-    //    if($po!=$request->image){
-
-    //     Cloudinary::delete($po);
-    //     $poo=$request->image;
-    //     $path= Cloudinary::upload($poo->getRealPath())->getSecurePath();
-    //     $uss->image=$path;
-    //    }else{
-    //     $uss->image=$request->image;
-    //    }
-    //  $poo=$request->file('image');
-    //  $path= Cloudinary::upload($poo->getRealPath())->getSecurePath();
-
-        
-       
-      //  $po=$path;
         $uss->title=$input['title'];
-       // $uss->image=$path;
+       
         $uss->user_id=Auth::id();
         $uss->save();
 
