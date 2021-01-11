@@ -87,6 +87,8 @@ class MainScreenController extends BaseController
 
         if($request->image!=null){
          $input['image']=$path;
+        }else{
+            $input['image']='https://cdn.pixabay.com/photo/2013/06/17/10/28/end-139848_960_720.jpg';
         }
         $screen=MainScreen::create($input);
 
