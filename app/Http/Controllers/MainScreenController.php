@@ -143,11 +143,25 @@ class MainScreenController extends BaseController
             return $this->sendError("cant edit this");
         }
 
-        $photo=$request->image;
-        $path= Cloudinary::upload($photo->getRealPath())->getSecurePath();
-        $uss->title=$input['title'];
 
+       $po=Cloudinary::find($uss->image);
+
+      
+       if($po!=$request->image){
+
+        Cloudinary::delete($po);
+        $po=$request->image;
+        $path= Cloudinary::upload($po->getRealPath())->getSecurePath();
         $uss->image=$path;
+       }else{
+        $uss->image=$request->image;
+       }
+       
+
+        
+       
+      //  $po=$path;
+        $uss->title=$input['title'];
         $uss->user_id=Auth::id();
         $uss->save();
 
