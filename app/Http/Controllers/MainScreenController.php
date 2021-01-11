@@ -61,10 +61,10 @@ class MainScreenController extends BaseController
 
 
 
-        $photo=$request->file('image');
+      if($request->image!=null){
         
 
-        
+        $photo=$request->file('image');
         
        
         
@@ -74,6 +74,7 @@ class MainScreenController extends BaseController
 
       // $path=cloudinary()->upload($request->file($photo)->getRealPath())->getSecurePath();
       $path= Cloudinary::upload($photo->getRealPath())->getSecurePath();
+    }
        //dd($photo);
       // $newphoto=time().$path->getClientOriginalName();
       // $path=Storage::put('uploads.posts/',$newphoto);
