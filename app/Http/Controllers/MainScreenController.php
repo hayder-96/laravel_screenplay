@@ -84,8 +84,10 @@ class MainScreenController extends BaseController
         $user=Auth::user();
         
         $input['user_id']=$user->id;
-         $input['image']=$path;
 
+        if($request->image!=null){
+         $input['image']=$path;
+        }
         $screen=MainScreen::create($input);
 
        
