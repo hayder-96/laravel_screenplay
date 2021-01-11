@@ -156,8 +156,8 @@ class MainScreenController extends BaseController
     //    }else{
     //     $uss->image=$request->image;
     //    }
-     $poo=$request->file('image');
-     $path= Cloudinary::upload($poo->getRealPath())->getSecurePath();
+    //  $poo=$request->file('image');
+    //  $path= Cloudinary::upload($poo->getRealPath())->getSecurePath();
 
         
        
