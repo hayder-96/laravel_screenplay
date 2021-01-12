@@ -156,11 +156,13 @@ class MainScreenController extends BaseController
     //    }else{
     //     $uss->image=$request->image;
     //    }
-    $image_name=$request->hidden_image;
+    if($request->hasFile('image')){
+
+        Cloudinary::delete($uss->image);
      $poo=$request->file('image');
      $image_name= Cloudinary::upload($poo->getRealPath())->getSecurePath();
 
-        
+    }
        
       //  $po=$path;
         $uss->title=$input['title'];
