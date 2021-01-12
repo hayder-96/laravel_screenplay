@@ -165,7 +165,7 @@ class MainScreenController extends BaseController
        
       //  $po=$path;
         $uss->title=$input['title'];
-     //   $uss->image=$image_name;
+        $uss->image=$request->image;
         $uss->user_id=Auth::id();
         $uss->save();
 
