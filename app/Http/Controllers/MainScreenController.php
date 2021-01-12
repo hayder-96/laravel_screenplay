@@ -64,7 +64,7 @@ class MainScreenController extends BaseController
       if($request->image!=null){
         
 
-        $photo=$request->file('image');
+       $photo=$request->file('image');
         
        
         
@@ -82,6 +82,8 @@ class MainScreenController extends BaseController
         
    // $pa=cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
         
+   
+
         $user=Auth::user();
         
         $input['user_id']=$user->id;
@@ -91,6 +93,7 @@ class MainScreenController extends BaseController
         }else{
             $input['image']='https://cdn.pixabay.com/photo/2013/06/17/10/28/end-139848_960_720.jpg';
         }
+       
         $screen=MainScreen::create($input);
 
        
@@ -127,10 +130,12 @@ class MainScreenController extends BaseController
         $input=$request->all();
 
         $valdit=Validator::make($request->all(),[
-
-            'title'=>'required'
-            
+           
+            'title'=>'required',
+           // 'image'=>'required'
         ]);
+
+      
 
         if($valdit->fails()){
 
@@ -157,15 +162,18 @@ class MainScreenController extends BaseController
     //     $uss->image=$request->image;
     //    }
    
-     $poo=$request->file('image');
-     //$image_name=  Cloudinary::update($poo->getRealPath())->getSecurePath();
-     $path= Cloudinary::upload($poo->getRealPath())->getSecurePath();
-
     
+     //$image_name=  Cloudinary::update($poo->getRealPath())->getSecurePath();
+     
+
+     if($request->has('image')){
+         $poo=$request->file('image');
+            $path= Cloudinary::upload($poo->getRealPath())->getSecurePath();
+            $uss->image=$path;
+        }
        
       //  $po=$path;
         $uss->title=$input['title'];
-        $uss->image=$path;
         $uss->user_id=Auth::id();
         $uss->save();
 
