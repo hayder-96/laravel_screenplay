@@ -157,14 +157,15 @@ class MainScreenController extends BaseController
     //     $uss->image=$request->image;
     //    }
    
-     $poo=$request->file('image')->time();
-     $image_name= Cloudinary::upload($poo->getRealPath())->getSecurePath();
+    // $poo=$request->file('image');
+     //$image_name=  Cloudinary::update($poo->getRealPath())->getSecurePath();
+    // $image_name= Cloudinary::upload($poo->getRealPath())->getSecurePath();
 
     
        
       //  $po=$path;
         $uss->title=$input['title'];
-        $uss->image=$image_name;
+     //   $uss->image=$image_name;
         $uss->user_id=Auth::id();
         $uss->save();
 
