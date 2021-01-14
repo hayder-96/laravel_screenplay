@@ -38,4 +38,16 @@ class BaseController  extends Controller
         return response()->json($respone,404);
 
     }
+
+
+
+
+    public function Responeimage($message){
+
+
+       
+
+        return  response()->json($message);
+
+    }
 }

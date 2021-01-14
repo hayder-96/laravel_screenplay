@@ -24,7 +24,7 @@ Route::middleware('auth:api')->group(function(){
 
     
     
-    Route::post('getimage',[MainScreenController::class,'storeimage']);
+    Route::post('getimage',[MainScreenController::class,'imageLoad']);
     Route::resource('screen',MainScreenController::class);
     Route::resource('scene',SceneController::class);
     Route::get('getscene/delete/{id}',[SceneController::class,'index']);

@@ -5,27 +5,55 @@ namespace App\Http\Controllers;
 use App\Models\MainScreen;
 use Illuminate\Http\Request;
 use App\Http\Resources\screen as sc;
-use App\Http\Resources\screen;
-use App\Models\profile;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use App\Models\User;
 use Illuminate\Support\Facades\Storage;
-use Cloudinary\Api\Upload\UploadApi;
-use Illuminate\Http\UploadedFile;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
+
+
+
 
 class MainScreenController extends BaseController
 {
    
 
+    
 
+    
+   
+
+    public function imageLoad(Request $request){
+
+
+        
+        if($request->image!=null){
+
+        $photo=$request->file('image');
+
+
+        $myimage= Cloudinary::upload($photo->getRealPath())->getSecurePath();
+
+
+        return $this->Responeimage($myimage);
+    }
+    }
+
+    
+   
+
+
+    
+
+   
 
 
     public function getProfile($id)
     {
         $screen=MainScreen::where('user_id',$id)->get();
+
+        
+
 
         return $this->Respone(sc::collection($screen),"Done getData");
         
@@ -41,6 +69,9 @@ class MainScreenController extends BaseController
         return $this->Respone(sc::collection($screen),"Done getData");
         
     }
+
+
+    
 
     public function store(Request $request)
     {
@@ -166,11 +197,7 @@ class MainScreenController extends BaseController
      //$image_name=  Cloudinary::update($poo->getRealPath())->getSecurePath();
      
 
-     if($request->has('image')){
-         $poo=$request->file('image');
-            $path= Cloudinary::upload($poo->getRealPath())->getSecurePath();
-            $uss->image=$path;
-        }
+     
        
       //  $po=$path;
         $uss->title=$input['title'];
