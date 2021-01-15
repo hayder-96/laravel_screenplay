@@ -12,6 +12,7 @@ use App\Http\Controllers\UsersController as ControllersUsersController;
 use App\Models\MainScreen;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\UpimageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\users;
 
@@ -33,6 +34,7 @@ Route::middleware('auth:api')->group(function(){
 
     
 
+    Route::resource('upimage',UpimageController::class);
 
 
 

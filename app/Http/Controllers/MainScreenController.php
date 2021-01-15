@@ -21,23 +21,6 @@ class MainScreenController extends BaseController
     
 
     
-   
-
-    public function imageLoad(Request $request){
-
-
-        
-        if($request->image!=null){
-
-        $photo=$request->file('image');
-
-
-        $myimage= Cloudinary::upload($photo->getRealPath())->getSecurePath();
-
-
-        return $this->Responeimage($myimage);
-    }
-    }
 
     
    
@@ -227,31 +210,10 @@ class MainScreenController extends BaseController
 
 
 
-        public function storeimage(Request $request){
-
-
-
-            $uploadFolder = 'users';
-            $image = $request->file('image');
-            $image_uploaded_path = $image->store($uploadFolder, 'public');
-            $uploadedImageResponse = array(
-               "image_name" => basename($image_uploaded_path),
-               "image_url" => Storage::disk('public'),
-               "mime" => $image->getClientMimeType()
-            );
-            return $this->Respone($uploadedImageResponse,'File Uploaded Successfully');
-           }
-
-
-
-
-
-        }
-        
     
 
 
 
 
-
+    }
 
