@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class UpimageController extends BaseController
 {
   
-    public function index($id)
+    public function indexx($id)
     {
         
         $screen=upimage::all()->where('film_id',$id);
