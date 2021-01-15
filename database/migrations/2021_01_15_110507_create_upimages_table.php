@@ -16,7 +16,7 @@ class CreateUpimagesTable extends Migration
         Schema::create('upimages', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->integer('film_id');
+            $table->unsignedBigInteger('film_id')->unique();
             $table->foreign('film_id')->references('id')->on('main_screens')->onDelete('cascade');
             $table->timestamps();
         });
