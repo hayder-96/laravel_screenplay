@@ -35,7 +35,7 @@ Route::middleware('auth:api')->group(function(){
     
 
     Route::resource('upimage',UpimageController::class);
-    Route::get('getima/image/{id}',[UpimageController::class,'indexx']);
+    Route::get('getima/image/{id}',[UpimageController::class,'getim']);
 
 
     Route::get('getusersyes/{id}',[ProfileController::class,'indexyes']);

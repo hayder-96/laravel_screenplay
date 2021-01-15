@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class UpimageController extends BaseController
 {
   
-    public function indexx($id)
+    public function getim($id)
     {
         
-        $screen=upimage::where('film_id',$id)->get();
+        $screen=upimage::all()->where('film_id',$id);
 
         return $this->Respone(upim::collection($screen),"Done getData");
         
