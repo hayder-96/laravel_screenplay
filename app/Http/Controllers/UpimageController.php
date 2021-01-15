@@ -48,10 +48,7 @@ class UpimageController extends BaseController
     {
         
         $uss=upimage::find($id);
-        if($uss->user_id!=auth()->user()->id){
-
-            return $this->sendError('canot deleted');
-        }
+       
        $uss->delete();
         return $this->Respone(new upim($uss),"done delete");
     }
