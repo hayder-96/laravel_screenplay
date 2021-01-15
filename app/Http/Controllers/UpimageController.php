@@ -12,7 +12,7 @@ class UpimageController extends BaseController
     public function indexx($id)
     {
         
-        $screen=upimage::all()->where('film_id',$id);
+        $screen=upimage::where('film_id',$id)->get();
 
         return $this->Respone(upim::collection($screen),"Done getData");
         
