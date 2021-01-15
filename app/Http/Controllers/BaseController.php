@@ -45,9 +45,15 @@ class BaseController  extends Controller
     public function Responeimage($message){
 
 
+          $respone=[
+
+           
+            "message"=>$message
+
+        ];
        
 
-        return  response()->json($message);
+        return  response()->json($respone);
 
     }
 }
