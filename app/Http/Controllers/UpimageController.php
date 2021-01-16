@@ -38,7 +38,7 @@ class UpimageController extends BaseController
       dd($path);
     
       $input['image']=$path;
-      $photo=null;
+    
     $screen=upimage::create($input);
 
        

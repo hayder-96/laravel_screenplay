@@ -90,7 +90,7 @@ class MainScreenController extends BaseController
       $path= Cloudinary::upload($photo->getRealPath())->getSecurePath();
       dd($path);
       $input['image']=$path;
-      $photo=null;
+     
     } else{
         $input['image']='https://cdn.pixabay.com/photo/2013/06/17/10/28/end-139848_960_720.jpg';
     }
