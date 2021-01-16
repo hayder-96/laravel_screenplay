@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\upimage;
 use Illuminate\Http\Request;
  use App\Http\Resources\imageup as upim;
+ 
  use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class UpimageController extends BaseController
 {
@@ -26,15 +27,18 @@ class UpimageController extends BaseController
       
 
 
-      if($request->image!=null){
+      if($request->hasFile('image')){
         
 
         $input['film_id']=$request->film_id;
 
+      //  cloudinary_url("logo.json", array("type"=>"list"));
        
+       // cl_image_tag("https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png", array("type"=>"fetch"));
         
+
        
-      $path= Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+      $path= Cloudinary::upload($request->file('image')->getRealPath(), array("public_id" => 'sample_remote'))->getSecurePath();
       $input['image']=$path;
     
     $screen=upimage::create($input);
