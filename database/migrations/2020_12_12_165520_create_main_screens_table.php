@@ -15,7 +15,7 @@ class CreateMainScreensTable extends Migration
     {
         Schema::create('main_screens', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
+            $table->string('title')->unique();
             $table->string('image')->nullable();
             $table->integer('user_id');
             $table->timestamps();

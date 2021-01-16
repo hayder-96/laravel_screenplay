@@ -88,8 +88,12 @@ class MainScreenController extends BaseController
 
       // $path=cloudinary()->upload($request->file($photo)->getRealPath())->getSecurePath();
       $path= Cloudinary::upload($photo->getRealPath())->getSecurePath();
+      dd($path);
+      $input['image']=$path;
+    } else{
+        $input['image']='https://cdn.pixabay.com/photo/2013/06/17/10/28/end-139848_960_720.jpg';
     }
-       //dd($photo);
+       
       // $newphoto=time().$path->getClientOriginalName();
       // $path=Storage::put('uploads.posts/',$newphoto);
      // $fileName = $request->file('file')->getClientOriginalName();
@@ -102,11 +106,9 @@ class MainScreenController extends BaseController
         
         $input['user_id']=$user->id;
 
-        if($request->image!=null){
-         $input['image']=$path;
-        }else{
-            $input['image']='https://cdn.pixabay.com/photo/2013/06/17/10/28/end-139848_960_720.jpg';
-        }
+       
+         
+       
        
         $screen=MainScreen::create($input);
 

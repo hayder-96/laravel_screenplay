@@ -35,6 +35,7 @@ class UpimageController extends BaseController
         
        
       $path= Cloudinary::upload($photo->getRealPath())->getSecurePath();
+      dd($path);
       $input['image']=$path;
     
     $screen=upimage::create($input);

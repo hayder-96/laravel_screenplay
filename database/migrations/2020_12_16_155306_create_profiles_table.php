@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->string('name');
             $table->string('age');
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->unique();
             $table->string('gender');
             $table->string('country');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
