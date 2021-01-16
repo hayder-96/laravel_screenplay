@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MainScreen;
 use Illuminate\Http\Request;
 use App\Http\Resources\screen as sc;
+use Cloudinary\Cloudinary as CloudinaryCloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -167,6 +168,7 @@ class MainScreenController extends BaseController
       
         if($request->image!=null){
 
+            Cloudinary::destroy($uss->image);
             $uss->image=$request->image;
     //     Cloudinary::delete($po);
     //     $poo=$request->image;
