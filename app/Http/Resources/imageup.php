@@ -20,7 +20,7 @@ class imageup extends JsonResource
         'id'=>$this->id,
          'film_id'=>$this->film_id,
          'image'=>$this->image,
-        
+         'title'=>$this->title,
          
     ];
     }
