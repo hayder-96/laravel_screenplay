@@ -17,6 +17,7 @@ class CreateUpimagesTable extends Migration
             $table->id();
             $table->string('image');
             $table->unsignedBigInteger('film_id')->unique();
+            $table->string('title');
             $table->foreign('film_id')->references('id')->on('main_screens')->onDelete('cascade');
             $table->timestamps();
         });

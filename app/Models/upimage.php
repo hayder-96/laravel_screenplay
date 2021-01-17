@@ -14,7 +14,8 @@ class upimage extends Model
 
     protected $fillable = [
         'image',
-        'film_id'
+        'film_id',
+        'title'
         
     ];
 
