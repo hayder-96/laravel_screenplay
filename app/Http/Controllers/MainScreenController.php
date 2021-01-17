@@ -211,6 +211,7 @@ class MainScreenController extends BaseController
 
             return $this->sendError('canot deleted');
         }
+        Cloudinary::delete_resources($uss->title);
         Cloudinary::destroy($uss->title);
         Cloudinary::destroy($uss->title, array("invalidate" => TRUE));
        $uss->delete();
