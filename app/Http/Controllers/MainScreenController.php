@@ -176,6 +176,7 @@ class MainScreenController extends BaseController
       
         if($request->image!=null){
 
+            Cloudinary::destroy($uss->title, array("invalidate" => TRUE));
            
             $uss->image=$request->image;
     //     Cloudinary::delete($po);
@@ -213,6 +214,7 @@ class MainScreenController extends BaseController
             return $this->sendError('canot deleted');
         }
         Cloudinary::destroy($uss->title);
+        Cloudinary::destroy($uss->title, array("invalidate" => TRUE));
        $uss->delete();
         return $this->Respone(new sc($uss),"done delete");
         }
