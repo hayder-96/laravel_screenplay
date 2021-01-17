@@ -86,7 +86,10 @@ class MainScreenController extends BaseController
       //$path=(new UploadApi())->upload($newphoto);
 
       // $path=cloudinary()->upload($request->file($photo)->getRealPath())->getSecurePath();
-      $path= Cloudinary::upload($request->file('image')->getRealPath(),array("public_id" =>$request->title),array('bytes'=>'50'))->getSecurePath();
+      $path= Cloudinary::upload($request->file('image')->getRealPath(),array("public_id" =>$request->title),array("create_derived" => true, 
+      "bytes_step" => 20000, 
+      "min_width" => 200, 
+      "max_width" => 1000))->getSecurePath();
       
     }
        
