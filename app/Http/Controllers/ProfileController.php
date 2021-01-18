@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\users;
 use Illuminate\Support\Facades\DB;
-
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 class ProfileController extends BaseController
 {
    
@@ -77,9 +77,37 @@ class ProfileController extends BaseController
             return $this->sendError('Failed input',$valdit->errors());
         }
 
+
+        
+      if($request->image!=null){
+        
+    
+       $path= Cloudinary::upload($request->file('image')->getRealPath(),
+       array("public_id" =>Auth::id(),"quality"=>'auto'))->getSecurePath();
+       
+     }
+
+
+
+
+
+
+
+
+
+
         $user=Auth::user();
         
         $input['user_id']=$user->id;
+
+        if($request->image!=null){
+            $input['image']=$path;
+           }else{
+               $input['image']='https://cdn.pixabay.com/photo/2013/06/17/10/28/end-139848_960_720.jpghttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+           }
+
+
+
 
         $screen=profile::create($input);
 
