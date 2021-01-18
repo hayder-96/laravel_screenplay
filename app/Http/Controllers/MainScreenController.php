@@ -175,7 +175,7 @@ class MainScreenController extends BaseController
       
         if($request->image!=null){
 
-            Cloudinary::destroy($uss->title, array("invalidate" => TRUE));
+           
            
             $uss->image=$request->image;
     //     Cloudinary::delete($po);
