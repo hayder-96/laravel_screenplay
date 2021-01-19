@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\imageprofile as im;
-class ImageprofileController extends Controller
+class ImageprofileController extends BaseController
 {
    
     public function index()
