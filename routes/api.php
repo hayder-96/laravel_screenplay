@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FriendController;
+use App\Http\Controllers\ImageprofileController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MainScreenController;
 use App\Http\Controllers\ProfileController;
@@ -33,6 +34,10 @@ Route::middleware('auth:api')->group(function(){
     Route::get('getusers',[ProfileController::class,'indexOne']);
 
     
+    Route::get('getimageprofile',ImageprofileController::class);
+
+
+
 
     Route::resource('upimage',UpimageController::class);
     Route::get('getima/image/{id}',[UpimageController::class,'getim']);

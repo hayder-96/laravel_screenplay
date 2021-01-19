@@ -166,10 +166,15 @@ class ProfileController extends BaseController
             return $this->sendError("cant edit this");
         }
 
+
+        if($request->image!=null){
+            $uss->image=$request->image;
+
+        }
+
         $uss->name=$input['name'];
         $uss->age=$input['age'];
         $uss->country=$input['country'];
-        $uss->image=$input['image'];
         $uss->user_id=Auth::id();
         $uss->save();
 
