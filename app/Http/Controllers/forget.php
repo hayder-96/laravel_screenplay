@@ -32,26 +32,30 @@ class forget extends BaseController
      */
     public function store(Request $request)
     {
-       
-        $token=$request->input('token');
-
-        if(!$password=DB::table('password_resets')->where('token',$token)->first()){
 
 
-            return $this->Respone('error','');
+
+        $reset_password=Password::reset($request->validate(),function($user,$password){
+    
+
+    
+            $user->password=$password;
+            $user->save();
+    
+    
+    });
 
 
-        }
+    if($reset_password==Password::INVALID_TOKEN){
 
 
-      if ($user=User::where('email',$password->email)->first()){
+        return $this->Respone('hhh','kkkk');
+    }
 
-        return $this->Respone('email dose not exist',404);
-      }
+    return $this->Respone('password','successfully');
 
-      $user->password=Hash::make($request->input('password'));
-      $user->save();
-      return $this->Respone('success',200);
+     
+
     }
 
   
