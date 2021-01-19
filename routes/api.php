@@ -8,14 +8,11 @@ use App\Http\Controllers\MainScreenController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterandLogin;
 use App\Http\Controllers\SceneController;
-use App\Http\Controllers\usersController;
-use App\Http\Controllers\UsersController as ControllersUsersController;
-use App\Models\MainScreen;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UpimageController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\users;
+
 
 Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
@@ -34,7 +31,7 @@ Route::middleware('auth:api')->group(function(){
     Route::get('getusers',[ProfileController::class,'indexOne']);
 
     
-    Route::get('getimageprofile',ImageprofileController::class);
+    Route::resource('getimageprofile',ImageprofileController::class);
 
 
 
