@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\imageprofile as im;
+use Illuminate\Support\Facades\Password;
+
 class ImageprofileController extends BaseController
 {
    
@@ -25,6 +27,8 @@ class ImageprofileController extends BaseController
     public function store(Request $request)
     {
         $input=$request->all();
+        
+
         
       
 

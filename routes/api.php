@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\forget;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\ImageprofileController;
 use App\Http\Controllers\LikeController;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
-
+ Route::resource('Forgot',forget::class);
 
 
 Route::middleware('auth:api')->group(function(){
@@ -29,7 +30,7 @@ Route::middleware('auth:api')->group(function(){
     Route::get('getscene/delete/{id}',[SceneController::class,'index']);
     Route::resource('users',ProfileController::class);
     Route::get('getusers',[ProfileController::class,'indexOne']);
-
+     
     
     Route::resource('getimageprofile',ImageprofileController::class);
 
