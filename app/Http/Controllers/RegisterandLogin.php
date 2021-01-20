@@ -40,6 +40,13 @@ class RegisterandLogin extends Controller{
     $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
     $success['name']=$user->name;
      
+    if($user!=null){
+
+        forget::sendSignupemail($input['name'],$input['email'],$input['verification_code']);
+    
+    }
+
+
     return $resp->Respone($success,'Register ');
 
 }
