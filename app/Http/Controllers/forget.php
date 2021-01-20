@@ -35,20 +35,18 @@ class forget extends BaseController
 
 
 
-        $credentials = $request()->validate([
-            'email' => 'required|email',
-            'token' => 'required|string',
-            'password' => 'required|string|confirmed'
-        ]);
+        $input = $request->only('email');
+    $validator = Validator::make($input, [
+        'email' => "required|email"
+    ]);
+    if ($validator->fails()) {
+        return response()->json($validator->errors());
+    }
+    $response = Password::sendResetLink($input);
 
-        $reset_password_status = Password::reset($credentials, function ($user, $password) {
-            $user->password = $password;
-            $user->save();
-        });
-
-        if ($reset_password_status == Password::INVALID_TOKEN) {
-            return $this->Respone('invalited token',400);
-        }
+    $message = $response == Password::RESET_LINK_SENT ? 'Mail send successfully' : 'GLOBAL_SOMETHING_WANTS_TO_WRONG';
+    
+        
 
         return $this->Respone('Password has been successfully changed',200);
     }

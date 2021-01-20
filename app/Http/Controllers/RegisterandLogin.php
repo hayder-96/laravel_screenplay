@@ -39,8 +39,10 @@ class RegisterandLogin extends Controller{
     $user=User::create($input);
     $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
     $success['name']=$user->name;
-
-    return $resp->Respone($success,"successfully Register");
+    Auth::login($user,true);
+     $user->sendEmailVerificationNotification();
+     $succe = 'Please confirm yourself by clicking on verify user button sent to you on your email';
+    return $resp->Respone($success,$succe);
 
 }
 
