@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\signupEmail;
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Validator;
@@ -9,10 +10,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Mail;
 class forget extends BaseController
 {
    
+
+    public static function sendSignupemail($name,$email,$verification_code){
+
+        $data=[
+
+            'name'=>$name,
+            'verification'=>$verification_code
+        ];
+
+        Mail::to($email)->send(new signupEmail($data));
+
+
+
+    }
+
+
+
+
     public function index()
     {
         //
