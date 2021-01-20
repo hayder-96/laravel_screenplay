@@ -35,7 +35,7 @@ class forget extends BaseController
 
 
 
-        $credentials = request()->validate([
+        $credentials = $request()->validate([
             'email' => 'required|email',
             'token' => 'required|string',
             'password' => 'required|string|confirmed'
