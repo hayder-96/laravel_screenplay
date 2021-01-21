@@ -11,10 +11,15 @@ class signupEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public  $title;
+    public $customer_details;
   
-    public function __construct($data)
+
+    public function __construct($title,$customer_details)
     {
-        $this->email_data=$data;
+        $this->title = $title;
+        $this->customer_details= $customer_details;
+
     }
 
     /**
@@ -24,6 +29,6 @@ class signupEmail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_USERNAME'),'coder aweso.me')->subject('welcome to coderawseo.me')->view('mailsignup',['email_data'=>$this->email_data]);
+        return $this->subject($this->title)->view('mailsignup');
     }
 }

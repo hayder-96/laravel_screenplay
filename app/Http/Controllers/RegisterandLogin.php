@@ -9,9 +9,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\BaseController;
-
-
-
+use App\Mail\signupEmail;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterandLogin extends Controller{
 
@@ -40,11 +39,27 @@ class RegisterandLogin extends Controller{
     $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
     $success['name']=$user->name;
      
-    if($user!=null){
 
-        forget::sendSignupemail($input['name'],$input['email'],$input['verification_code']);
+    $title = '[Confirmation] Thank you for your order';
+
+
+
+    $customer_details = [
+         'name' => $request->name, 
+         'email' => $request->email 
+        ];
+
+
+        $sendemail=Mail::to($customer_details['email'])->send(new signupEmail($title,$customer_details));
+
+
+
+
+    // if($user!=null){
+
+    //     forget::sendSignupemail($input['name'],$input['email'],$input['verification_code']);
     
-    }
+    // }
 
 
     return $resp->Respone($success,'Register ');
