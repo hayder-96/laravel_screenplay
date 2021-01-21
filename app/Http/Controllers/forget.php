@@ -23,7 +23,7 @@ class forget extends BaseController
             'verification'=>$verification_code
         ];
 
-        Mail::to($email)->send(new signupEmail($data));
+       // Mail::to($email)->send(new signupEmail($data));
 
 
 
