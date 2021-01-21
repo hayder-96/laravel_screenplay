@@ -12,13 +12,13 @@ class signupEmail extends Mailable
     use Queueable, SerializesModels;
 
     public  $title;
-    public $customer_details;
+    
   
 
-    public function __construct($title,$customer_details)
+    public function __construct($title)
     {
         $this->title = $title;
-        $this->customer_details= $customer_details;
+       
 
     }
 

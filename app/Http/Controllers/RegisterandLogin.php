@@ -40,26 +40,10 @@ class RegisterandLogin extends Controller{
     $success['name']=$user->name;
      
 
-    $title = '[Confirmation] Thank you for your order';
+    $email=$input['email'];
+      $title="thank you";
 
-
-
-    $customer_details = [
-         'name' => $request->name, 
-         'email' => $request->email 
-        ];
-
-
-        $sendemail=Mail::to($customer_details['email'])->send(new signupEmail($title,$customer_details));
-
-
-
-
-    // if($user!=null){
-
-    //     forget::sendSignupemail($input['name'],$input['email'],$input['verification_code']);
-    
-    // }
+    Mail::to($email)->send(new signupEmail($title));
 
 
     return $resp->Respone($success,'Register ');
