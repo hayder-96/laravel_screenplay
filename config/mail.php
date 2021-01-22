@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'default' => env('MAIL_DRIVER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'smtp'),
 
 
 
-   // 'driver' => env('MAIL_DRIVER', 'sendgrid'),
+    //'driver' => env('MAIL_DRIVER', 'smtp'),
 
 
 
