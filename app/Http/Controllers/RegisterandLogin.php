@@ -34,7 +34,7 @@ class RegisterandLogin extends Controller{
     $input=$request->all();
 
     $input['password']= Hash::make($input['password']);
-     $input['verification_code']=sha1(time());
+    // $input['verification_code']=sha1(time());
     $user=User::create($input);
     $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
     $success['name']=$user->name;
