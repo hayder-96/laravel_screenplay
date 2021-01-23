@@ -50,7 +50,7 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
-            'host' => env('HOST_NAME', 'smtp.mailgun.org'),
+            'SMTP hostname' => env('HOST_NAME', 'smtp.mailgun.org'),
             'timeout' => null,
             'auth_mode' => null,
         ],
