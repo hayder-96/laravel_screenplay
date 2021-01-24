@@ -17,7 +17,7 @@ return [
 
    
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mailgun'),
 
 
 
@@ -46,11 +46,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
+            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
-            'SMTP hostname' => env('HOST_NAME', 'smtp.mailgun.org'),
             'timeout' => null,
             'auth_mode' => null,
         ],
