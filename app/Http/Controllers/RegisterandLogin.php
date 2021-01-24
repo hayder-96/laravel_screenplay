@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\BaseController;
 use App\Mail\signupEmail;
 use Illuminate\Support\Facades\Mail;
-
 class RegisterandLogin extends Controller{
 
     
@@ -43,6 +42,7 @@ class RegisterandLogin extends Controller{
     $email=$input['email'];
       $title="thank you";
 
+      $uy=new PHPMailer;
     Mail::to($email)->send(new signupEmail($title));
 
 
