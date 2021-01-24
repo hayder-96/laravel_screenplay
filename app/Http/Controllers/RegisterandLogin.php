@@ -42,7 +42,7 @@ class RegisterandLogin extends Controller{
     $email=$input['email'];
       $title="thank you";
 
-      $uy=new PHPMailer;
+      
     Mail::to($email)->send(new signupEmail($title));
 
 
