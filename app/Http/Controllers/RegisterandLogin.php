@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Mail;
 class RegisterandLogin extends Controller{
 
     
+
+
+    public function getmail(){
+
+        Mail::to('ha679552@gmail.com')->send(new signupEmail('HELLO'));
+    }
+
+
+
+
     public function Register(Request $request){
     $resp= new BaseController;
 
