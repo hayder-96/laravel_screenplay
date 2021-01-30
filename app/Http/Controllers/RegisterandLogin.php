@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\BaseController;
 use App\Mail\signupEmail;
 use Illuminate\Support\Facades\Mail;
+use Mailgun\Mailgun;
 class RegisterandLogin extends Controller{
 
     
@@ -19,6 +20,7 @@ class RegisterandLogin extends Controller{
     public function getmail(){
 
         Mail::to('ha679552@gmail.com')->send(new signupEmail('HELLO'));
+     
     }
 
 
