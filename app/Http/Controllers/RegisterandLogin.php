@@ -55,7 +55,7 @@ class RegisterandLogin extends Controller{
       $title="thank you";
 
       
-    Mail::to($email)->send(new signupEmail($title));
+  //  Mail::to($email)->send(new signupEmail($title));
 
 
     return $resp->Respone($success,'Register ');
