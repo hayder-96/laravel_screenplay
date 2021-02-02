@@ -15,7 +15,7 @@ return [
     */
 
     'sendgrid' => [
-        'api_key' => env('SENDGRID_API_KEY'),
+        'api_key' => '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',
     ],
 
 
