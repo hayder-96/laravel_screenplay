@@ -13,11 +13,11 @@ return [
     |
     */
 
-    //'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'smtp'),
 
    
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    //'driver' => env('MAIL_DRIVER', 'smtp'),
 
 
 
@@ -46,7 +46,7 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST','smtp.mailtrap.io'),
+            'host' => env('MAIL_HOST','smtp.sendgrid.net'),
             'port' => env('MAIL_PORT',587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
