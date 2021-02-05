@@ -12,6 +12,7 @@ use App\Http\Controllers\BaseController;
 use App\Mail\signupEmail;
 use Illuminate\Support\Facades\Mail;
 use Mailgun\Mailgun;
+use App\Http\Resources\code as SC;
 class RegisterandLogin extends Controller{
 
     
@@ -19,7 +20,9 @@ class RegisterandLogin extends Controller{
 
     public function getmail(){
 
-        Mail::to('hxhwe1924@gmail.com')->send(new signupEmail(rand(1111,111111)));
+        $resp= new BaseController;
+        $user=User::all()->where('user_id',Auth::id());
+        return $resp->Respone(SC::collection($user),'success get');
      
     }
 
