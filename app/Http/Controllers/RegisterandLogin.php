@@ -52,7 +52,7 @@ class RegisterandLogin extends Controller{
      $success['name']=$user->name;
       
      $email=$input['email'];
-       $title=rand(1111,111111);
+       $title=$user->verification_code;
             
 
       
