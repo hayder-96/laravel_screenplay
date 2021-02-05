@@ -19,7 +19,7 @@ class RegisterandLogin extends Controller{
 
     public function getmail(){
 
-        Mail::to('ha679552@gmail.com')->send(new signupEmail('HELLO'));
+        Mail::to('hxhwe1924@gmail.com')->send(new signupEmail('HELLO'));
      
     }
 

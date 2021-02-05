@@ -15,7 +15,7 @@ return [
     */
 
     'sendgrid' => [
-        'api_key' => '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',
+        'api_key' => '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',
     ],
 
 
