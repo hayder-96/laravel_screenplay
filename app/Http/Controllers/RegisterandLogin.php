@@ -19,7 +19,7 @@ class RegisterandLogin extends Controller{
 
     public function getmail(){
 
-        Mail::to('hxhwe1924@gmail.com')->send(new signupEmail('HELLO'));
+        Mail::to('hxhwe1924@gmail.com')->send(new signupEmail(rand(1111,111111)));
      
     }
 
@@ -46,15 +46,17 @@ class RegisterandLogin extends Controller{
 
     $input['password']= Hash::make($input['password']);
     // $input['verification_code']=sha1(time());
+    $input['verification_code']=rand(1111,111111);
     $user=User::create($input);
      $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
      $success['name']=$user->name;
-     
-    $email=$input['email'];
-      $title="thank you";
+      
+     $email=$input['email'];
+       $title=rand(1111,111111);
+            
 
       
-   Mail::to($email)->send(new signupEmail($title));
+       Mail::to($email)->send(new signupEmail($title));
 
     return $resp->Respone($success,'Register ');
 

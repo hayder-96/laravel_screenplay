@@ -6,8 +6,7 @@ welcome to my website
 
 please click the link
 <br><br>
-<a href="">Click Here</a>
+<a href="">رمز التحقق هو{{$tit}}</a>
 <br><br>
 Thank you 
 <br>
-coder
