@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
 Route::get('gmail',[RegisterandLogin::class,'getmail']);
-Route::get('code',[RegisterandLogin::class,'getcode']);
+Route::post('code',[RegisterandLogin::class,'getcode']);
 
 
 
