@@ -21,6 +21,10 @@ Route::post('Login',[RegisterandLogin::class,'login']);
 
 
 
+Route::resource('code',CodeController::class);
+Route::get('getpoo/{name}',[CodeController::class,'getcode']);
+
+
 
  Route::resource('Forgot',forget::class);
 
@@ -36,9 +40,6 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('users',ProfileController::class);
     Route::get('getusers',[ProfileController::class,'indexOne']);
      
-
-    Route::resource('code',CodeController::class);
-    Route::get('getpoo/{name}',[CodeController::class,'getcode']);
 
 
     
