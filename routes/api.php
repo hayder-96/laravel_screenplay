@@ -19,6 +19,7 @@ Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
 Route::get('gmail',[RegisterandLogin::class,'getmail']);
 Route::post('code',[RegisterandLogin::class,'getcode']);
+Route::post('addprofile',[ProfileController::class,'addprof']);
 
 
 
@@ -36,6 +37,11 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('users',ProfileController::class);
     Route::get('getusers',[ProfileController::class,'indexOne']);
      
+
+
+    Route::get('getpoo',[ProfileController::class,'getp']);
+
+
     
     Route::resource('getimageprofile',ImageprofileController::class);
 

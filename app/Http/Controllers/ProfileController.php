@@ -17,6 +17,20 @@ class ProfileController extends BaseController
 
 
     
+    public function getp(profile $p)
+    {
+       
+        $users=profile::all()->where('name','=',$p);
+
+       
+        return $this->Respone(users::collection($users),'getAll');
+    
+    }
+
+
+
+
+    
     public function indexyes($id)
     {
        
