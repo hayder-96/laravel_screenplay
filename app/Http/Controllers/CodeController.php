@@ -42,7 +42,7 @@ class CodeController extends Controller
         }
         
         $co=rand(1111,111111);
-        $input['code']=Hash::make($co);
+        $input['code']=$co;
 
         $code=code::create($input);
 
@@ -78,7 +78,7 @@ class CodeController extends Controller
         $co=rand(1111,111111);
         
       
-        $code->code=Hash::make($co);
+        $code->code=$co;
         $code->save();
         Mail::to($request->email)->send(new signupEmail($request->email,$co));
         return $this->Respone(new SC($code),'Success update');
