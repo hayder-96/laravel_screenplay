@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\signupEmail;
 use App\Http\Resources\code as SC;
 use Illuminate\Support\Facades\Hash;
-class CodeController extends Controller
+class CodeController extends BaseController
 {
    
     public function getcode($name)
