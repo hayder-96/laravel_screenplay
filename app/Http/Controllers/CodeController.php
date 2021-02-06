@@ -40,7 +40,7 @@ class CodeController extends Controller
         $valdit=Validator::make($request->all(),[
            
             'email'=>'required',
-              'code'=>'required'
+            
              
         ]);
 
