@@ -72,7 +72,7 @@ class RegisterandLogin extends Controller{
 
     $input['password']= Hash::make($input['password']);
     // $input['verification_code']=sha1(time());
-    $input['verification_code']=rand(1111,111111);
+  //  $input['verification_code']=rand(1111,111111);
     $user=User::create($input);
      $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
      $success['name']=$user->name;
@@ -82,7 +82,7 @@ class RegisterandLogin extends Controller{
             
 
       
-       Mail::to($email)->send(new signupEmail($title));
+      // Mail::to($email)->send(new signupEmail($title));
 
     return $resp->Respone($success,'Register ');
 
