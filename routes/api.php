@@ -39,7 +39,7 @@ Route::middleware('auth:api')->group(function(){
      
 
 
-    Route::get('getpoo/{id}',[ProfileController::class,'getp']);
+    Route::get('getpoo/{name}',[ProfileController::class,'getp']);
 
 
     
