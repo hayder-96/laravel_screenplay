@@ -1,12 +1,12 @@
-Hello
+Hello {{$tit}}
 <br><br>
 
-welcome to my website
+welcome to in my app
 <br>
 
-please click the link
+
 <br><br>
-<a href="">رمز التحقق هو{{$tit}}</a>
+<a href="">رمز التحقق هو{{$co}}</a>
 <br><br>
 Thank you 
 <br>

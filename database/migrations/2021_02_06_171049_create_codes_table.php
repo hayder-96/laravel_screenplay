@@ -13,10 +13,10 @@ class CreateCodesTable extends Migration
      */
     public function up()
     {
-        
+
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
+            $table->string('email')->unique();
             $table->integer('code');
             $table->timestamps();
         });

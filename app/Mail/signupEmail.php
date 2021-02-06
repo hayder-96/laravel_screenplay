@@ -12,13 +12,13 @@ class signupEmail extends Mailable
     use Queueable, SerializesModels;
 
     public  $title;
-    
+    public $code;
   
 
-    public function __construct($title)
+    public function __construct($title,$code)
     {
         $this->title = $title;
-       
+         $this->code=$code;
 
     }
 
@@ -29,6 +29,7 @@ class signupEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('المصادقة')->view('mailsignup')->with('tit',$this->title);
+        $co=$this->code;
+        return $this->subject('المصادقة')->view('mailsignup',compact('co'))->with('tit',$this->title);
     }
 }

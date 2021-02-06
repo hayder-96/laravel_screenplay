@@ -48,10 +48,10 @@ return [
 
    'mysql' => [
         'driver' => 'mysql',
-        'host' => 'us-mm-auto-dca-03-a.cleardb.net',
-        'database' => 'heroku_7a6de100dbaa877',
-        'username' => 'bf8b867f2057f6',
-        'password' => 'b23f199f',
+        'host' => 'us-mm-auto-sfo-03-bh.cleardb.net',
+        'database' => 'heroku_34be3d1c766a430',
+        'username' => 'b72a24ecbc388d',
+        'password' => 'ee116328',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
         'prefix' => '',
