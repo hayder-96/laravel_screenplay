@@ -27,6 +27,29 @@ class RegisterandLogin extends Controller{
     }
 
 
+    
+    public function getcode(Request $request){
+
+        $resp= new BaseController;
+        
+       $title=rand(1111,111111);
+        Mail::to($request->email)->send(new signupEmail($title));
+
+
+        return $resp->Respone($title,'Success input');
+     
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function Register(Request $request){
