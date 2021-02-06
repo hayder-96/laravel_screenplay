@@ -17,10 +17,10 @@ class ProfileController extends BaseController
 
 
     
-    public function getp(profile $p)
+    public function getp($name)
     {
        
-        $users=profile::all()->where('name','=',$p);
+        $users=profile::all()->where('name','=',$name);
 
        
         return $this->Respone(users::collection($users),'getAll');
