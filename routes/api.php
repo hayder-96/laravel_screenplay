@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CodeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\forget;
 use App\Http\Controllers\FriendController;
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
-Route::get('gmail',[RegisterandLogin::class,'getmail']);
-Route::post('code',[RegisterandLogin::class,'getcode']);
-Route::post('addprofile',[ProfileController::class,'addprof']);
+
 
 
 
@@ -38,8 +37,8 @@ Route::middleware('auth:api')->group(function(){
     Route::get('getusers',[ProfileController::class,'indexOne']);
      
 
-
-    Route::get('getpoo/{name}',[ProfileController::class,'getp']);
+    Route::resource('code',CodeController::class);
+    Route::get('getpoo/{name}',[CodeController::class,'getcode']);
 
 
     

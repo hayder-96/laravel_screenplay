@@ -18,7 +18,9 @@ class code extends JsonResource
 
        return [
        
-        'verification_code'=>$this->verification_code
+           'id'=>$this->id,
+        'email'=>$this->email,
+        'code'=>$this->code
     ];
     }
 }

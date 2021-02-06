@@ -18,40 +18,6 @@ class RegisterandLogin extends Controller{
     
 
 
-    public function getmail(){
-
-        $resp= new BaseController;
-        $user=User::all()->where('user_id',Auth::id());
-        return $resp->Respone(SC::collection($user),'success get');
-     
-    }
-
-
-    
-    public function getcode(Request $request){
-
-        $resp= new BaseController;
-        
-       $title=rand(1111,111111);
-        Mail::to($request->email)->send(new signupEmail($title));
-
-
-        return $resp->Respone($title,'Success input');
-     
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function Register(Request $request){
     $resp= new BaseController;
 
