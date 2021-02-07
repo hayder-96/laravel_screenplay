@@ -31,7 +31,7 @@ class CodeController extends BaseController
         
 
       $user=User::all()->where('email',$request->email);
-      if($user->email==$request->email){
+      if($user->count()!=0){
         return $this->sendError('هذا الحساب موجود');
         return;
       }
