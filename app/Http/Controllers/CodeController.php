@@ -32,7 +32,7 @@ class CodeController extends BaseController
 
       $user=User::all()->where('email',$request->email);
       if($user->count()!=0){
-        return $this->sendError('هذا الحساب موجود');
+        return $this->Respone('هذا الحساب  موجود',500);
         return;
       }
 
