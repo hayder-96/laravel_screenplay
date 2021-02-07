@@ -66,7 +66,7 @@ class forget extends BaseController
     {
         
 
-        $user=User::where('email',$email);
+        $user=User::all()->where('email',$email);
 
        
  $valdit=Validator::make($request->all(),[
