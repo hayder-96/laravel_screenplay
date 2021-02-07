@@ -26,7 +26,7 @@ class forget extends BaseController
 
 
 
-      $user=User::where('email',$request->email);
+      $user=User::all()->where('email',$request->email);
       if($user==null){
         return $this->Respone('this email dosenot exsist',500);
         return;
