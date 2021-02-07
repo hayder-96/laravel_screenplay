@@ -28,7 +28,7 @@ class forget extends BaseController
 
       $user=User::all()->where('email',$request->email);
       if($user->count()==0){
-        return $this->Respone('هذا الحساب غير موجود',500);
+        return $this->Respone(500,'هذا الحساب غير موجود');
         return;
       }
 
