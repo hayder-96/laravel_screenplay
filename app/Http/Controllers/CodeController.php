@@ -28,6 +28,15 @@ class CodeController extends BaseController
     {
         
 
+        
+
+      $user=User::all()->where('email',$request->email);
+      if($user->email==$request->email){
+        return $this->sendError('هذا الحساب موجود');
+        return;
+      }
+
+
         $input=$request->all();
       
         $valdit=Validator::make($request->all(),[

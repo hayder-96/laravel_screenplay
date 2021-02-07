@@ -57,7 +57,7 @@ class forget extends BaseController
 
        
         
-        return $this->Respone($code,'Success input');
+        return $this->Respone('Success input',200);
 
 
 
@@ -88,7 +88,7 @@ class forget extends BaseController
 
 
        
-        return $this->Respone($user,'Success update');
+        return $this->Respone('Success update',200);
 
     }
     
