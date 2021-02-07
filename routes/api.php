@@ -27,7 +27,7 @@ Route::get('getpoo/{name}',[CodeController::class,'getcode']);
 
 
  Route::resource('Forgot',forget::class);
-
+ Route::post('uppass',[forget::class,'insertpas']);
 
 Route::middleware('auth:api')->group(function(){
 

@@ -62,11 +62,9 @@ class forget extends BaseController
     }
 
 
-    public function update(Request $request,$email)
+    public function insertpas(Request $request)
     {
         
-
-        $user=User::find($email);
 
        
  $valdit=Validator::make($request->all(),[
@@ -81,8 +79,14 @@ class forget extends BaseController
             return $this->sendError('Failed input',$valdit->errors());
         }
        
-        $user->password=Hash::make($request->password);
-        $user->save();
+
+        $user = User::where('email', $request->email)
+        ->update(['password' => Hash::make($request->password)]);
+
+
+
+        // $user->password=Hash::make($request->password);
+        // $user->save();
         return $this->Respone($user,'Success update');
 
     }
