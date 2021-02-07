@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\signupEmail;
 use App\Http\Resources\code as SC;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 class CodeController extends BaseController
 {

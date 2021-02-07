@@ -11,109 +11,82 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+
+use App\Models\code;
+use Illuminate\Support\Facades\Auth;
+
 class forget extends BaseController
 {
    
 
-    public static function sendSignupemail($name,$email,$verification_code){
-
-        $data=[
-
-            'name'=>$name,
-            'verification'=>$verification_code
-        ];
-
-       // Mail::to($email)->send(new signupEmail($data));
+    public function store(Request $request){
 
 
-
-    }
-
-
-
-
-    public function index()
-    {
-        //
-    }
-
-   
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-
-
-        $input = $request->only('email');
-    $validator = Validator::make($input, [
-        'email' => "required|email"
-    ]);
-    if ($validator->fails()) {
-        return response()->json($validator->errors());
-    }
-    $response = Password::sendResetLink($input);
-
-    $message = $response == Password::RESET_LINK_SENT ? 'Mail send successfully' : 'GLOBAL_SOMETHING_WANTS_TO_WRONG';
-    
         
 
-        return $this->Respone('Password has been successfully changed',200);
-    }
-    
+      $user=User::all()->where('email',$request->email);
+      if($user==null){
+        return $this->Respone('this email dosenot exsist',500);
+        return;
+      }
 
+        $input=$request->all();
+      
+        $valdit=Validator::make($request->all(),[
+           
+            'email'=>'required',
+            
+             
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+        
+        $co=rand(1111,111111);
+        $input['code']=$co;
+
+        $code=code::create($input);
+
+         $email=$input['email'];
+
+        Mail::to($email)->send(new signupEmail($email,$co));
+
+       
+        
+        return $this->Respone($code,'Success input');
+
+
+
+    }
+
+
+    public function update(Request $request,$email)
+    {
+        
+
+        $user=User::where('email',$email);
+
+       
+ $valdit=Validator::make($request->all(),[
+           
+        
+              'password'=>'required'
+             
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+       
+        $user->password=Hash::make($request->password);
+        $user->save();
+        return $this->Respone($user,'Success update');
+
+    }
     
 
      
-
-    
-
-  
-    public function resetpassword(ResetPassword $request)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
