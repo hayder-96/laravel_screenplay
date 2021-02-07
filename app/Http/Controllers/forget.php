@@ -22,9 +22,11 @@ class forget extends BaseController
     public function store(Request $request){
 
 
-        
 
-      $user=User::all()->where('email',$request->email);
+
+
+
+      $user=User::where('email',$request->email);
       if($user==null){
         return $this->Respone('this email dosenot exsist',500);
         return;
@@ -85,8 +87,7 @@ class forget extends BaseController
 
 
 
-        // $user->password=Hash::make($request->password);
-        // $user->save();
+       
         return $this->Respone($user,'Success update');
 
     }
