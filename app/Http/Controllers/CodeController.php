@@ -51,7 +51,7 @@ class CodeController extends BaseController
             return $this->sendError('Failed input',$valdit->errors());
         }
         
-        $co=rand(1111,111111);
+        $co=rand(10213,98974);
         $input['code']=$co;
 
         $code=code::create($input);

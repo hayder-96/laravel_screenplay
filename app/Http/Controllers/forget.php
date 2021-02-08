@@ -21,11 +21,6 @@ class forget extends BaseController
 
     public function store(Request $request){
 
-
-
-
-
-
       $user=User::all()->where('email',$request->email);
       if($user->count()==0){
         return $this->Respone(500,'no');
@@ -46,10 +41,10 @@ class forget extends BaseController
             return $this->sendError('Failed input',$valdit->errors());
         }
         
-        $co=rand(1111,111111);
+        $co=rand(10213,98974);
         $input['code']=$co;
 
-        $code=code::create($input);
+       code::create($input);
 
          $email=$input['email'];
 
