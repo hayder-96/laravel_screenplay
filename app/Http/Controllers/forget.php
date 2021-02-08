@@ -22,7 +22,7 @@ class forget extends BaseController
     public function store(Request $request){
 
       $user=User::all()->where('email',$request->email);
-      if($user==null){
+      if($user->count()==0){
         return $this->Respone(500,'no');
         return;
       }
