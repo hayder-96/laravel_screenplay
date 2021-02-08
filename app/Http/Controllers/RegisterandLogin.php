@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\BaseController;
 
-class RegisterandLogin extends Controller{
+class RegisterandLogin extends BaseController{
 
     
 
 
     public function Register(Request $request){
-    $resp= new BaseController;
+ 
 
     $validit=Validator::make($request->all(),[
 
@@ -28,7 +28,7 @@ class RegisterandLogin extends Controller{
     ]);
     if($validit->fails()){
 
-        return $resp->sendError('failed register!',$validit->errors());
+        return $this->sendError('failed register!',$validit->errors());
     }
 
     $input=$request->all();
@@ -47,13 +47,13 @@ class RegisterandLogin extends Controller{
       
       // Mail::to($email)->send(new signupEmail($title));
 
-    return $resp->Respone($success,'Register ');
+    return $this->Respone($success,'Register ');
 
 }
 
 public function Login(Request $request){
 
-    $resp= new BaseController;
+  
 
    
       
@@ -69,13 +69,16 @@ public function Login(Request $request){
 
        
         
+       $user=Auth::user();
+        
+        
         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
 
-            return $resp->Respone($success,"Login successfully");
+            return $this->Respone($success,"Login successfully");
 
 
     }else{
-        return $resp->sendError("Failed Login");
+        return $this->sendError("Failed Login");
     }  
 
 
