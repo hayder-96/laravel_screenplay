@@ -32,7 +32,7 @@ class CodeController extends BaseController
 
       $user=User::all()->where('email',$request->email);
       if($user->count()!=0){
-        return $this->Respone('500','yes');
+        return $this->Respone(500,'yes');
         return;
       }
 
@@ -85,13 +85,13 @@ class CodeController extends BaseController
 
             return $this->sendError('Failed input',$valdit->errors());
         }
-        $co=rand(1111,111111);
+        $co=rand(10213,98974);
         
       
         $code->code=$co;
         $code->save();
         Mail::to($request->email)->send(new signupEmail($request->email,$co));
-        return $this->Respone(new SC($code),'Success update');
+        return $this->Respone('done','Success update');
 
     }
 
