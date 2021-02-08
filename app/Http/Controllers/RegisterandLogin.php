@@ -55,6 +55,27 @@ public function Login(Request $request){
 
     $resp= new BaseController;
 
+    $user=Auth::user();
+
+    if($user->password!=$request->password){
+
+        return $resp->Respone(500,"password not same");
+
+        return;
+    }
+
+      
+
+    $user=User::all()->where('email',$request->email);
+    if($user->count()==0){
+      return $this->Respone(500,'no');
+      return;
+    }
+
+
+
+
+
     $validit=Validator::make($request->all(),[
 
         'email'=>'required',
@@ -64,8 +85,8 @@ public function Login(Request $request){
    
     if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
 
-        $user=Auth::user();
-
+       
+        
         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
 
             return $resp->Respone($success,"Login successfully");
