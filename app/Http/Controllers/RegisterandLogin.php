@@ -55,11 +55,7 @@ public function Login(Request $request){
 
     $resp= new BaseController;
 
-    $user=User::all()->where('email',$request->email);
-    if($user->count()==0){
-      return $resp->Respone(500,'no');
-      return;
-    }
+   
 
 
 
@@ -82,7 +78,7 @@ public function Login(Request $request){
 
 
     }else{
-        return $resp->sendError("Failed Login");
+        return $resp->Respone(500,"Login fiald");
     }  
 
 
