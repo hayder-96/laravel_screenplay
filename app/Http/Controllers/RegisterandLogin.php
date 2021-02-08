@@ -34,20 +34,13 @@ class RegisterandLogin extends Controller{
     $input=$request->all();
 
     $input['password']= Hash::make($input['password']);
-    // $input['verification_code']=sha1(time());
-  //  $input['verification_code']=rand(1111,111111);
+   
     $user=User::create($input);
      $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
      $success['name']=$user->name;
       
-     $email=$input['email'];
-       $title=$user->verification_code;
-            
 
-      
-      // Mail::to($email)->send(new signupEmail($title));
-
-    return $resp->Respone($success,'Register ');
+    return $resp->Respone($success,'تم التسجيل ');
 
 }
 
@@ -74,7 +67,7 @@ public function Login(Request $request){
          
         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
 
-            return $resp->Respone($success,"Login successfully");
+            return $resp->Respone($success,"تم الدخول");
 
 
     }else{
