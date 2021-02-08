@@ -78,7 +78,7 @@ public function Login(Request $request){
 
 
     }else{
-        return $resp->Respone(500,"Login fiald");
+        return $resp->Respone(500,"البريد  او الرمز غير متطابق");
     }  
 
 
