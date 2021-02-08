@@ -64,9 +64,9 @@ public function Login(Request $request){
    
     if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
 
-      //  $user=Auth::user();
+        $user=Auth::user();
 
-          $user=User::all()->where('email',$request->email);
+         
         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
 
             return $resp->Respone($success,"Login successfully");
