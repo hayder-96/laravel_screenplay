@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\BaseController;
 
-class RegisterandLogin extends BaseController{
+class RegisterandLogin extends Controller{
 
     
 
 
     public function Register(Request $request){
- 
+    $resp= new BaseController;
 
     $validit=Validator::make($request->all(),[
 
@@ -28,7 +28,7 @@ class RegisterandLogin extends BaseController{
     ]);
     if($validit->fails()){
 
-        return $this->sendError('failed register!',$validit->errors());
+        return $resp->sendError('failed register!',$validit->errors());
     }
 
     $input=$request->all();
@@ -47,16 +47,13 @@ class RegisterandLogin extends BaseController{
       
       // Mail::to($email)->send(new signupEmail($title));
 
-    return $this->Respone($success,'Register ');
+    return $resp->Respone($success,'Register ');
 
 }
 
 public function Login(Request $request){
 
-  
-
-   
-      
+    $resp= new BaseController;
 
     $validit=Validator::make($request->all(),[
 
@@ -67,18 +64,15 @@ public function Login(Request $request){
    
     if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
 
-       
-        
-       $user=Auth::user();
-        
-        
+        $user=Auth::user();
+
         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
 
-            return $this->Respone($success,"Login successfully");
+            return $resp->Respone($success,"Login successfully");
 
 
     }else{
-        return $this->sendError("Failed Login");
+        return $resp->sendError("Failed Login");
     }  
 
 
