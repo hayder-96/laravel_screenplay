@@ -58,16 +58,6 @@ public function Login(Request $request){
    
       
 
-    $user=User::all()->where('email',$request->email);
-    if($user->count()==0){
-      return $this->Respone(500,'no');
-      return;
-    }
-
-
-
-
-
     $validit=Validator::make($request->all(),[
 
         'email'=>'required',
