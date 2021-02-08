@@ -55,15 +55,7 @@ public function Login(Request $request){
 
     $resp= new BaseController;
 
-    $user=Auth::user();
-
-    if($user->password!=$request->password){
-
-        return $resp->Respone(500,"password not same");
-
-        return;
-    }
-
+   
       
 
     $user=User::all()->where('email',$request->email);
