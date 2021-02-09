@@ -44,15 +44,18 @@ class forget extends BaseController
         $co=rand(10213,98974);
         $input['code']=$co;
 
-       code::create($input);
+        $user=code::create($input);
 
          $email=$input['email'];
 
         Mail::to($email)->send(new signupEmail($email,$co));
 
-       
+
+   
+    $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+
         
-        return $this->Respone('Success input',200);
+        return $this->Respone($success,200);
 
 
 

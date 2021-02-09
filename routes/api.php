@@ -27,12 +27,18 @@ Route::get('getpoo/{name}',[CodeController::class,'getcode']);
 
 
  Route::resource('Forgot',forget::class);
- Route::post('uppass',[forget::class,'insertpas']);
+
 
 Route::middleware('auth:api')->group(function(){
 
     
     
+    Route::post('uppass',[forget::class,'insertpas']);
+
+
+
+
+
     Route::post('getimage',[MainScreenController::class,'imageLoad']);
     Route::resource('screen',MainScreenController::class);
     Route::resource('scene',SceneController::class);
