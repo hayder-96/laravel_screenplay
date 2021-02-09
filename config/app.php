@@ -165,7 +165,7 @@ return [
        // Illuminate\Notifications\Messages\NexmoMessage::class,
       
 
-       // Nexmo\Laravel\NexmoServiceProvider::class,
+        Nexmo\Laravel\NexmoServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -233,7 +233,7 @@ return [
         'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
        
 
-       // 'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
+        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
     ],
 
 ];
