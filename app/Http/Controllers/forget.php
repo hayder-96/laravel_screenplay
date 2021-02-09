@@ -49,12 +49,12 @@ class forget extends BaseController
          $email=$input['email'];
 
      //   Mail::to($email)->send(new signupEmail($email,$co));
-     if( Auth::attempt(['email' => $request->email])){
+     if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
 
       $user=Auth::user();
 
        
-      $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken();
+      $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
         
         return $this->Respone($success,200);
 
