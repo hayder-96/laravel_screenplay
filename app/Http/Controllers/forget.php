@@ -44,7 +44,7 @@ class forget extends BaseController
         $co=rand(10213,98974);
         $input['code']=$co;
 
-        $user=code::create($input);
+        code::create($input);
 
          $email=$input['email'];
 
