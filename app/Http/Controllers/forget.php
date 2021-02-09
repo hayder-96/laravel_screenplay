@@ -54,7 +54,7 @@ class forget extends BaseController
       $user=Auth::user();
 
        
-      $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+      $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken();
         
         return $this->Respone($success,200);
 
