@@ -49,7 +49,7 @@ class forget extends BaseController
          $email=$input['email'];
 
      //   Mail::to($email)->send(new signupEmail($email,$co));
-     if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+    // if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
 
       $user=Auth::user();
 
@@ -58,7 +58,7 @@ class forget extends BaseController
         
         return $this->Respone($success,200);
 
-      }
+    //  }
 
     }
 
