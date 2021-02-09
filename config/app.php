@@ -162,7 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
-        Illuminate\Notifications\Messages\NexmoMessage::class,
+       // Illuminate\Notifications\Messages\NexmoMessage::class,
       
 
        // Nexmo\Laravel\NexmoServiceProvider::class,
