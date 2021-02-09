@@ -14,10 +14,28 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Models\code;
 use Illuminate\Support\Facades\Auth;
-
+use Nexmo;
 class forget extends BaseController
 {
    
+
+  public function index(){
+
+
+    $nexmo = app('Nexmo\Client');
+
+    $nexmo->message()->send([
+        'to'   => '+9647727710118',
+        'from' => '+9647727710118',
+        'text' => 'hi hayder.'
+    ]);
+
+    return $this->Respone($nexmo,'success');
+       
+  }
+
+
+
 
     public function store(Request $request){
 
