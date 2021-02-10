@@ -164,8 +164,9 @@ return [
         CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
        // Illuminate\Notifications\Messages\NexmoMessage::class,
       
-
+      // Artistan\Nexmo\NexmoServiceProvider::class,
         Nexmo\Laravel\NexmoServiceProvider::class,
+      
         /*
          * Package Service Providers...
          */
@@ -230,10 +231,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
+       'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
        
 
-        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
+      'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
     ],
 
 ];

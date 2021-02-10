@@ -4,34 +4,48 @@ namespace App\Http\Controllers;
 
 use App\Mail\signupEmail;
 use App\Models\User;
-use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-
+use Nexmo\Laravel\Facade\Nexmo;
 use App\Models\code;
-use Illuminate\Support\Facades\Auth;
-use Nexmo;
+use Illuminate\Notifications\Notification;
+use App\Notifications\notify;
+use NexmoMessage as GlobalNexmoMessage;
+use Vonage\Voice\NCCO\Action\Notify as ActionNotify;
+
 class forget extends BaseController
 {
    
 
   public function index(){
 
+    // $message=Nexmo::message()->send([
 
-    $nexmo = app('Nexmo\Client');
+    //   'to' => '7727710118',
+    //   'from' => 'Nexmo',
+    //   'text' => 'hello laravel',
+     
+    // ]);
+   
+    
+    $basic  = new \Nexmo\Client\Credentials\Basic('07f43500', 'Wb8LmO6Q81um618U');
+$client = new \Nexmo\Client($basic);
 
-    $nexmo->message()->send([
-        'to'   => '+9647727710118',
-        'from' => '+9647727710118',
-        'text' => 'hi hayder.'
-    ]);
+$message = $client->message()->send([
+    'to' => '9647727710118',
+    'from' => 'HAYDER',
+    'text' => 'Hi'
+]);
 
-    return $this->Respone($nexmo,'success');
+    return $this->Respone(200,$message);
+
+
+
        
+
+
   }
 
 

@@ -40,8 +40,8 @@ return [
     ],
 
     'nexmo' => [
-        'key' => env('NEXMO_KEY'),
-    'secret' => env('NEXMO_SECRET'),
+        'key' => '07f43500',
+    'secret' => 'Wb8LmO6Q81um618U',
         'sms_from' => '+964 772 771 0118',
     ],
 ];

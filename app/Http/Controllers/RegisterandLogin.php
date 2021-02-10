@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\BaseController;
 
+
 class RegisterandLogin extends Controller{
 
     
@@ -32,6 +33,9 @@ class RegisterandLogin extends Controller{
     }
 
     $input=$request->all();
+
+
+    
 
     $input['password']= Hash::make($input['password']);
    

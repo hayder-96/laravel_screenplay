@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\MainScreen;
 use Illuminate\Http\Request;
 use App\Http\Resources\screen as sc;
-use Cloudinary\Cloudinary as CloudinaryCloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Storage;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 
@@ -89,7 +87,7 @@ class MainScreenController extends BaseController
       
       $path= Cloudinary::upload($request->file('image')->getRealPath(),
       array("public_id" =>$request->title,"quality"=>'auto'))->getSecurePath();
-      
+     
     }
        
       // $newphoto=time().$path->getClientOriginalName();
