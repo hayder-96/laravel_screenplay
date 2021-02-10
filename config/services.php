@@ -48,6 +48,6 @@ return [
     'facebook' => [
         'client_id' =>'408093733621860',
         'client_secret' =>'65bc75b939eb35439ae526b6356a28522',
-        'redirect' =>'http://127.0.0.1:8000/auth/google/callback',
+        'redirect' =>'https://intense-reaches-85730.herokuapp.com/auth/google/callback',
     ],
 ];
