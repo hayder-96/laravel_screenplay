@@ -45,9 +45,9 @@ return [
         'sms_from' => '+964 772 771 0118',
     ],
 
-    'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'https://intense-reaches-85730.herokuapp.com/auth/google/callback',
+    'facebook' => [
+        'client_id' =>'408093733621860',
+        'client_secret' =>'65bc75b939eb35439ae526b6356a28522',
+        'redirect' =>'http://127.0.0.1:8000/auth/google/callback',
     ],
 ];
