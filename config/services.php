@@ -48,6 +48,6 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'https://intense-reaches-85730.herokuapp.com',
+        'redirect' => 'https://intense-reaches-85730.herokuapp.com/auth/google/callback',
     ],
 ];

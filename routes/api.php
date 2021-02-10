@@ -21,6 +21,18 @@ Route::post('Login',[RegisterandLogin::class,'login']);
 
 
 
+
+
+Route::get('auth/google',[Forget::class,'redirectToGoogle']);
+Route::get('auth/google/callback',[Forget::class,'handleGoogleCallback']);
+
+
+
+
+
+
+
+
 Route::resource('code',CodeController::class);
 Route::get('getpoo/{name}',[CodeController::class,'getcode']);
 

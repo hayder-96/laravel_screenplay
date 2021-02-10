@@ -167,6 +167,7 @@ return [
       // Artistan\Nexmo\NexmoServiceProvider::class,
         Nexmo\Laravel\NexmoServiceProvider::class,
       
+        Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -233,6 +234,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
        'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
        
+
+       'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
 
       'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
     ],
