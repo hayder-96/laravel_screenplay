@@ -2,6 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
+
+
+
+
+Route::get('auth/google',[forget::class,'redirectToGoogle']);
+Route::get('auth/google/callback',[forget::class,'handleGoogleCallback']);
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
