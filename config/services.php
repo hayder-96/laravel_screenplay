@@ -44,4 +44,10 @@ return [
     'secret' => 'Wb8LmO6Q81um618U',
         'sms_from' => '+964 772 771 0118',
     ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => 'https://intense-reaches-85730.herokuapp.com',
+    ],
 ];

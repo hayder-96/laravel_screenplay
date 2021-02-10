@@ -16,6 +16,7 @@
         "laravel/framework": "^8.12",
         "laravel/nexmo-notification-channel": "^2.5",
         "laravel/passport": "^10.1",
+        "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
         "nexmo/client": "^2.4",
         "nexmo/laravel": "^2.4",

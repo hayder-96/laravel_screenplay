@@ -14,37 +14,17 @@ use Illuminate\Notifications\Notification;
 use App\Notifications\notify;
 use NexmoMessage as GlobalNexmoMessage;
 use Vonage\Voice\NCCO\Action\Notify as ActionNotify;
-
+use Laravel\Socialite\Facades\Socialite;
 class forget extends BaseController
 {
    
 
   public function index(){
 
-    // $message=Nexmo::message()->send([
-
-    //   'to' => '7727710118',
-    //   'from' => 'Nexmo',
-    //   'text' => 'hello laravel',
-     
-    // ]);
-   
-    
-    $basic  = new \Nexmo\Client\Credentials\Basic('07f43500', 'Wb8LmO6Q81um618U');
-$client = new \Nexmo\Client($basic);
-
-$message = $client->message()->send([
-    'to' => '9647727710118',
-    'from' => 'HAYDER',
-    'text' => 'Hi'
-]);
+    $message=Socialite::driver('google');
+        
 
     return $this->Respone(200,$message);
-
-
-
-       
-
 
   }
 
