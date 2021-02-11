@@ -41,7 +41,7 @@ class forget extends BaseController
    
                 Auth::login($finduser);
   
-               return redirect('/home');
+                return redirect()->to('/home');
    
             }else{
                 $newUser = new User;
@@ -52,7 +52,7 @@ class forget extends BaseController
   
                 Auth::login($newUser);
    
-                return redirect('/home');
+                return redirect()->to('/home');
             }
   
         } catch (Exception $e) {
