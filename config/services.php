@@ -46,8 +46,9 @@ return [
     ],
 
     'facebook' => [
-        'client_id' =>'408093733621860',
-        'client_secret' =>'5bc75b939eb35439ae526b6356a28522',
+        
+        'client_id' =>'5bc75b939eb35439ae526b6356a28522',
+        'client_secret' =>'408093733621860',
         'redirect' =>'https://intense-reaches-85730.herokuapp.com/auth/google/callback',
     ],
 ];
