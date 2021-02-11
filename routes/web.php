@@ -9,7 +9,7 @@ use App\Http\Controllers\forget;
 
 
 Route::get('auth/google',[forget::class,'redirectToGoogle']);
-Route::get('auth/google/callback',[forget::class,'handleGoogleCallback']);
+Route::get('/auth/google/callback',[forget::class,'handleGoogleCallback']);
 
 /*
 |--------------------------------------------------------------------------
