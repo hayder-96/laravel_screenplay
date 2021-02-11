@@ -30,7 +30,7 @@ class forget extends BaseController
    
     public function handleGoogleCallback()
     {
-        try {
+      
   
             $user = Socialite::driver('facebook')->user();
    
@@ -55,9 +55,7 @@ class forget extends BaseController
                 return redirect()->to('/home');
             }
   
-        } catch (Exception $e) {
-            return redirect('auth/face');
-        }
+      
     }
 
 
