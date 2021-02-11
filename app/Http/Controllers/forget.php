@@ -56,7 +56,7 @@ class forget extends BaseController
             }
   
         } catch (Exception $e) {
-            return redirect('auth/google');
+            return redirect('auth/face');
         }
     }
 
