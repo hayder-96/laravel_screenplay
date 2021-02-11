@@ -40,18 +40,18 @@ class forget extends BaseController
    
                 Auth::login($finduser);
   
-               return redirect('/home');
+               return redirect('/welcome');
    
             }else{
                 $newUser = new User;
                     $newUser->name=$user->name;
                     $newUser->email= $user->id;
                     $newUser->password=bcrypt('123456');
-                
+                     $newUser->save();
   
                 Auth::login($newUser);
    
-                return view('post');
+                return redirect('/welcome');
             }
   
         } catch (Exception $e) {
