@@ -25,7 +25,7 @@ class forget extends BaseController
     {
 
        
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('facebook');
     }
    
     public function handleGoogleCallback()
