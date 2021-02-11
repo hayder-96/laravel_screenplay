@@ -40,7 +40,7 @@ class forget extends BaseController
    
                 Auth::login($finduser);
   
-               return redirect('/welcome');
+               return redirect('welcome');
    
             }else{
                 $newUser = new User;
@@ -51,7 +51,7 @@ class forget extends BaseController
   
                 Auth::login($newUser);
    
-                return redirect('/welcome');
+                return redirect('welcome');
             }
   
         } catch (Exception $e) {

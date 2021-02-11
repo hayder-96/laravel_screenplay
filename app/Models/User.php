@@ -20,7 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-       'phone_number'
+      
     ];
 
     /**
@@ -50,9 +50,5 @@ class User extends Authenticatable
     }
     
 
-    public function routeNotificationForNexmo($notification)
-    {
-        return $this->phone_number;
-    }
-    
+  
 }
