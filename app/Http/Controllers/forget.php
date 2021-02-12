@@ -13,6 +13,7 @@ use App\Models\code;
 use Exception;
 use Illuminate\Notifications\Notification;
 use App\Notifications\notify;
+use Facebook\Facebook;
 use NexmoMessage as GlobalNexmoMessage;
 use Vonage\Voice\NCCO\Action\Notify as ActionNotify;
 use Laravel\Socialite\Facades\Socialite;
@@ -33,41 +34,14 @@ class forget extends BaseController
       
   
       try{
-      
-        $fb = new \Facebook\Facebook([
-          'app_id' => '408093733621860',
-          'app_secret' => '5bc75b939eb35439ae526b6356a28522',
-          'default_graph_version' => 'v2.10',
-         
-        ]);
-        
 
-        echo $fb->name;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // $user = Socialite::driver('facebook')->user();
+      $user = Socialite::driver('facebook')->user();
    
+      dd($user);
 
-      // if($user!=null){
-      //   echo $user->email;
-      // }else {
-      //  echo 'no';
-      // }
 
     }catch(Exception $e){
-      dd($e->getMessage());
+     echo $e->getMessage();
     }
             // $finduser = User::where('email', $user->id)->first();
    
