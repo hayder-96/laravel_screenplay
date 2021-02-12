@@ -37,9 +37,9 @@ class forget extends BaseController
    
 
       if($user!=null){
-        echo $user;
+        echo 'yes';
       }else{
-        echo $user;
+        echo 'no';
       }
             // $finduser = User::where('email', $user->id)->first();
    
