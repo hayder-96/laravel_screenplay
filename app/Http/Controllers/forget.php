@@ -43,7 +43,7 @@ class forget extends BaseController
   
                 return redirect()->to('/home');
    
-            }elseif($finduser){
+            }else{
                 $newUser = new User;
                     $newUser->name=$user->name;
                     $newUser->email= $user->id;
@@ -54,8 +54,6 @@ class forget extends BaseController
    
                 return redirect()->to('/home');
             
-            }else {
-              echo 'no';
             }
       
     }
