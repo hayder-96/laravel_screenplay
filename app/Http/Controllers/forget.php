@@ -37,7 +37,7 @@ class forget extends BaseController
    
 
       if($user!=null){
-        echo $user;
+        echo $user->name;
       }else{
         echo 'no';
       }
