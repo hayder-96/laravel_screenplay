@@ -39,11 +39,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'nexmo' => [
-        'key' => '07f43500',
-    'secret' => 'Wb8LmO6Q81um618U',
-        'sms_from' => '+964 772 771 0118',
-    ],
+    
 
     'facebook' => [
         
