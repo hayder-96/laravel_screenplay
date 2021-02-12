@@ -35,26 +35,34 @@ class forget extends BaseController
       
       $user = Socialite::driver('facebook');
    
-            $finduser = User::where('email', $user->id)->first();
+
+      if($user!=null){
+        echo $user->email;
+      }else {
+       echo 'no';
+      }
+
+
+            // $finduser = User::where('email', $user->id)->first();
    
-            if($finduser){
+            // if($finduser){
    
-                Auth::login($finduser);
+            //     Auth::login($finduser);
   
-                return redirect()->to('/home');
+            //     return redirect()->to('/home');
    
-            }else{
-                $newUser = new User;
-                    $newUser->name=$user->name;
-                    $newUser->email= $user->id;
-                    $newUser->password=bcrypt('123456');
-                     $newUser->save();
+            // }else{
+            //     $newUser = new User;
+            //         $newUser->name=$user->name;
+            //         $newUser->email= $user->id;
+            //         $newUser->password=bcrypt('123456');
+            //          $newUser->save();
   
-                Auth::login($newUser);
+            //     Auth::login($newUser);
    
-                return redirect()->to('/home');
+            //     return redirect()->to('/home');
             
-            }
+            // }
       
     }
 
