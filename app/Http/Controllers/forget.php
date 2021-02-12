@@ -32,11 +32,15 @@ class forget extends BaseController
     {
       
   
+      try{
       $user = Socialite::driver('facebook')->user();
    
 
             echo $user->name;
 
+      }catch(Exception $e){
+        echo $e;
+      }
             // $finduser = User::where('email', $user->id)->first();
    
             // if($finduser){
