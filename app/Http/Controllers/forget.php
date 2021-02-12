@@ -36,8 +36,8 @@ class forget extends BaseController
       $user = Socialite::driver('facebook');
    
 
-      if($user!=null){
-        echo $user->id;
+      if($user==null){
+        echo 'yes';
       }else{
         echo 'no';
       }
