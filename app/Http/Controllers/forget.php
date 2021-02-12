@@ -34,14 +34,37 @@ class forget extends BaseController
   
       try{
       
-      $user = Socialite::driver('facebook')->user();
+        $fb = new \Facebook\Facebook([
+          'app_id' => '408093733621860',
+          'app_secret' => '5bc75b939eb35439ae526b6356a28522',
+          'default_graph_version' => 'v2.10',
+         
+        ]);
+        
+
+        echo $fb->name;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // $user = Socialite::driver('facebook')->user();
    
 
-      if($user!=null){
-        echo $user->email;
-      }else {
-       echo 'no';
-      }
+      // if($user!=null){
+      //   echo $user->email;
+      // }else {
+      //  echo 'no';
+      // }
 
     }catch(Exception $e){
       dd($e->getMessage());

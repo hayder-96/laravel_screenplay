@@ -10,15 +10,16 @@
     "require": {
         "php": "^7.3|^8.0",
         "cloudinary-labs/cloudinary-laravel": "^1.0",
+        "facebook/graph-sdk": "^5.7",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "laravel/framework": "^8.12",
         "laravel/passport": "^10.1",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
+        "nexmo/laravel": "^2.4",
         "s-ichikawa/laravel-sendgrid-driver": "^3.0",
         "sendgrid/sendgrid": "~7"
-       
     },
     "require-dev": {
         "facade/ignition": "^2.5",
