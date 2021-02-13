@@ -27,8 +27,8 @@ class FacebookServiceProvider extends ServiceProvider
         $this->app->singleton(Facebook::class, function ($app) {
             $config = config('services.facebook');
             return new Facebook([
-                'app_id' => $config['client_id'],
-                'app_secret' => $config['client_secret'],
+                'app_id' => $config['408093733621860'],
+                'app_secret' => $config['5bc75b939eb35439ae526b6356a28522'],
                 'default_graph_version' => 'v2.6',
             ]);
         });
