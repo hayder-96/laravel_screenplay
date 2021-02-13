@@ -30,7 +30,7 @@ class forget extends BaseController
        // return Socialite::driver('facebook')->redirect();
 
        return Socialite::driver('facebook')->scopes([
-        "publish_actions, manage_pages", "publish_pages"])->redirect();
+        "email"])->redirect();
         
     }
    
