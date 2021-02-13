@@ -28,17 +28,12 @@ class forget extends BaseController
 
        
        return Socialite::driver('facebook')->redirect();
-
-     
         
     }
    
     public function handleGoogleCallback()
     {
-      
-
-    
-  
+        
       try{
        
        
@@ -46,13 +41,10 @@ class forget extends BaseController
 
         dd($user->email);
       
-   
-     
-
-
     }catch(Exception $e){
      echo $e->getMessage();
     }
+  
             // $finduser = User::where('email', $user->id)->first();
    
             // if($finduser){
