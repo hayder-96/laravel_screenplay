@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\users;
 use App\Mail\signupEmail;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
@@ -38,10 +39,14 @@ class forget extends BaseController
     
   
       try{
+       
 
-      $user = Socialite::driver('facebook')->token;
+      if (Socialite::driver('facebook')->user() !=null){
+
+        dd('yes');
+      }
    
-      dd($user);
+     
 
 
     }catch(Exception $e){
