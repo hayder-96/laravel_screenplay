@@ -26,7 +26,7 @@ class forget extends BaseController
     {
 
        
-        return Socialite::driver('facebook');
+        return Socialite::driver('facebook')->redirect();
 
         
     }
