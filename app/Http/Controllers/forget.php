@@ -40,11 +40,11 @@ class forget extends BaseController
   
       try{
        
+       
+             $user=Socialite::driver('facebook')->user();
 
-      if (Socialite::driver('facebook')->user() !=null){
-
-        dd('yes');
-      }
+        dd($user->email);
+      
    
      
 
