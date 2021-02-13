@@ -36,7 +36,7 @@ class forget extends BaseController
         
       try{
       
-             return Socialite::with('facebook')->user();
+             return Socialite::with('facebook')->user()->email;
 
      //   dd($user->email);
       
