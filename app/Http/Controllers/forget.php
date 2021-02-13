@@ -27,7 +27,7 @@ class forget extends BaseController
     {
 
        
-       return Socialite::driver('facebook')->redirect();
+       return Socialite::driver('facebook')->stateless()->redirect();
         
     }
    
@@ -35,9 +35,8 @@ class forget extends BaseController
     {
         
       try{
-       
-       
-             $user=Socialite::driver('facebook')->user();
+      
+             $user=Socialite::driver('facebook')->stateless()->user();
 
         dd($user->email);
       
