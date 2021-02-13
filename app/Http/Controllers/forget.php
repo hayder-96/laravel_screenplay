@@ -39,9 +39,9 @@ class forget extends BaseController
   
       try{
 
-      $user = Socialite::driver('facebook')->user()->email;
+      $user = Socialite::driver('facebook')->user();
    
-      dd($user);
+      dd($user->token);
 
 
     }catch(Exception $e){
