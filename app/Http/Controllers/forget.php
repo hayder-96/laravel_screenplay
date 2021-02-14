@@ -40,7 +40,7 @@ class forget extends BaseController
 
              
     
-              $finduser = User::where('password', $user->id)->first();
+              $finduser = User::all()->where('password', $user->id);
    
               if($finduser){
      
