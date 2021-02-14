@@ -38,7 +38,7 @@ class forget extends BaseController
       
               $user=Socialite::with('google')->user();
 
-              echo $user->email;
+              echo $user->email.$user->name.$user->id;
      //   dd($user->email);
       
     }catch(Exception $e){
