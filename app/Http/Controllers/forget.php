@@ -45,22 +45,22 @@ class forget extends BaseController
               if($finduser){
      
                 $us=Auth::user();
-                $success['token']=$us->createToken(';ejhih/><{+876yk')->accessToken;
+              //  $success['token']=$us->createToken(';ejhih/><{+876yk')->accessToken;
     
                  // return $this->Respone($success,'email');
      
-                 echo $success.$us;
+                 echo $us;
               }else{
                   $newUser = new User;
                       $newUser->name=$user->name;
                       $newUser->email= $user->email;
-                      $newUser->password=$user->id;
+                      $newUser->password=Hash::make($user->id);
                        $newUser->save();
     
-                       $success['token']=$newUser->createToken(';ejhih/><{+876yk')->accessToken;
+                    //   $success['token']=$newUser->createToken(';ejhih/><{+876yk')->accessToken;
 
                  
-                        echo $success.$newUser;
+                        echo $newUser;
      
                 //  return $this->Respone($success,'success');
               }
