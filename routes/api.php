@@ -27,16 +27,6 @@ Route::get('auth/google/callback',[forget::class,'handleGoogleCallback']);
 
 
 
-
-
-
-
-
-
-
-
-
-
 Route::resource('code',CodeController::class);
 Route::get('getpoo/{name}',[CodeController::class,'getcode']);
 
