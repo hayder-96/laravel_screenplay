@@ -100,8 +100,9 @@ public function LoginFacebook(Request $request){
 
     ]);
    
-    if( Auth::attempt(['password' => $request->password])){
+    $user=User::all()->where('password',$request->password);
 
+    if($user->count()!=0){
         $user=Auth::user();
 
          
