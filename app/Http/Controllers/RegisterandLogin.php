@@ -22,7 +22,7 @@ class RegisterandLogin extends Controller{
     $validit=Validator::make($request->all(),[
 
         'name'=>'required',
-        'email'=>'required',
+        'email'=>'required|email',
         'password'=>'required',
         'c_password'=>'required|same:password',
 
@@ -100,11 +100,11 @@ public function LoginFacebook(Request $request){
 
     ]);
    
-    $user=User::all()->where('email',$request->email);
+   
 
 
 
-    if($user->count()!=0){
+    if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
         $user=Auth::user();
 
          
