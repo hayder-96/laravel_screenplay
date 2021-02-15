@@ -95,12 +95,12 @@ public function LoginFacebook(Request $request){
 
     $validit=Validator::make($request->all(),[
 
-     
+         'email'=>'required',
         'password'=>'required'
 
     ]);
    
-    $user=User::all()->where('password',$request->password);
+    $user=User::all()->where('email',$request->email);
 
 
 
@@ -120,7 +120,7 @@ public function LoginFacebook(Request $request){
 
     
 
-       // $input['password']= Hash::make($input['password']);
+        $input['password']= Hash::make($input['password']);
        
         $user=User::create($input);
          $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
