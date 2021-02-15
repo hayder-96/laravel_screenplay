@@ -167,7 +167,7 @@ return [
       // Artistan\Nexmo\NexmoServiceProvider::class,
         Nexmo\Laravel\NexmoServiceProvider::class,
       
-        Laravel\Socialite\SocialiteServiceProvider::class,
+       
 
        
         /*
@@ -237,7 +237,7 @@ return [
        'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
        
 
-       'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+      
 
 
       'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,

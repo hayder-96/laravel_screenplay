@@ -95,12 +95,12 @@ public function LoginFacebook(Request $request){
 
     $validit=Validator::make($request->all(),[
 
-        'email'=>'required',
-        'password'=>'required',
+     
+        'password'=>'required'
 
     ]);
    
-    if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+    if( Auth::attempt(['password' => $request->password])){
 
         $user=Auth::user();
 
