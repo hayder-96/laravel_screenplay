@@ -81,4 +81,72 @@ public function Login(Request $request){
 
 
 
+
+
+
+
+
+
+public function LoginFacebook(Request $request){
+
+    $resp= new BaseController;
+
+   
+
+    $validit=Validator::make($request->all(),[
+
+        'email'=>'required',
+        'password'=>'required',
+
+    ]);
+   
+    if( Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+
+        $user=Auth::user();
+
+         
+        $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+
+            return $resp->Respone($success,"تم الدخول");
+
+
+    }else{
+
+        $input=$request->all();
+
+
+    
+
+        $input['password']= Hash::make($input['password']);
+       
+        $user=User::create($input);
+         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+         $success['name']=$user->name;
+          
+
+
+        return $resp->Respone($success,200);
+    }  
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

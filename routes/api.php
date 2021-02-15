@@ -20,10 +20,7 @@ Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
 
 
-
-
-Route::get('auth/google',[forget::class,'redirectToGoogle']);
-Route::get('auth/google/callback',[forget::class,'handleGoogleCallback']);
+Route::post(' LoginFacebook',[RegisterandLogin::class,'login']);
 
 
 
