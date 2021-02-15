@@ -102,6 +102,8 @@ public function LoginFacebook(Request $request){
    
     $user=User::all()->where('password',$request->password);
 
+
+
     if($user->count()!=0){
         $user=Auth::user();
 
@@ -118,7 +120,7 @@ public function LoginFacebook(Request $request){
 
     
 
-        $input['password']= Hash::make($input['password']);
+       // $input['password']= Hash::make($input['password']);
        
         $user=User::create($input);
          $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
