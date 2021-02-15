@@ -20,7 +20,7 @@ Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
 
 
-Route::post(' LoginFacebook',[RegisterandLogin::class,'login']);
+Route::post('LoginFacebook',[RegisterandLogin::class,'LoginFacebook']);
 
 
 
