@@ -56,7 +56,7 @@ public function Login(Request $request){
 
     $validit=Validator::make($request->all(),[
 
-        'email'=>'required',
+        'email'=>'required|email',
         'password'=>'required',
 
     ]);
