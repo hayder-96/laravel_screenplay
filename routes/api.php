@@ -58,13 +58,13 @@ Route::resource('code',CodeController::class);
 
 
 
-
+ Route::get('getem/{email}',[CodeController::class,'getemail']);
 
 Route::middleware('auth:api')->group(function(){
 
     Route::post('getpoo',[CodeController::class,'getcode']);
     
-    Route::post('getem/{email}',[CodeController::class,'getemail']);
+    
 
 
 
