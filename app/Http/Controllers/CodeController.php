@@ -114,17 +114,23 @@ class CodeController extends BaseController
         }
         
         $co=rand(10213,98974);
-        $input['code']=$co;
+       $op=Crypt::encrypt($co);
+       
+       $input['code']=$op;
+       
+      
+     
+     
+        
+      code::create($input);
 
-        $code=code::create($input);
+       $email=$input['email'];
 
-         $email=$input['email'];
-
-        Mail::to($email)->send(new signupEmail($email,$co));
+       Mail::to($email)->send(new signupEmail($email,$co));
 
        
         
-        return $this->Respone($code,'Success input');
+        return $this->Respone(200,'Success input');
     }
 
 
