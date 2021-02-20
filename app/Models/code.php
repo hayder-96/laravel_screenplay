@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Notifications\Notifiable;
+use Cheezykins\LaravelEncryptable\Traits\Encryptable;
 class code extends Model
 {
-    use HasFactory;
-
+   
+    use HasFactory,HasFactory,Notifiable;
+   
 
 
     	
@@ -16,5 +18,14 @@ class code extends Model
         'email',
         'code'
        
+    ];
+
+    protected $hidden = [
+        'code'
+        
+    ];
+
+    protected $encrypted = [
+        'code'
     ];
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CodeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\forget;
@@ -20,22 +21,54 @@ Route::post('Register',[RegisterandLogin::class,'Register']);
 Route::post('Login',[RegisterandLogin::class,'login']);
 
 
+
+Route::resource('admin',AdminController::class);
+
+
+
+
+
+
 Route::post('logface',[RegisterandLogin::class,'LoginFacebook']);
 
 
 
 Route::resource('code',CodeController::class);
-Route::get('getpoo/{name}',[CodeController::class,'getcode']);
+
 
 
 
  Route::resource('Forgot',forget::class);
 
 
+ Route::post('getcoreg',[CodeController::class,'getcoder']);
+
+
+ Route::middleware('admin:admin')->group(function(){
+
+
+    Route::get('getadmin',[AdminController::class,'indexx']);
+    
+    
+ });
+
+
+
+
+
+
+
+
+
 Route::middleware('auth:api')->group(function(){
 
+    Route::post('getpoo',[CodeController::class,'getcode']);
     
-    
+    Route::post('getem/{email}',[CodeController::class,'getemail']);
+
+
+
+
     Route::post('uppass',[forget::class,'insertpas']);
 
 
@@ -89,3 +122,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     return $request->user();
 });
+
+
+Route::group(['middleware' =>['api','checkPassword','changeLanguage','checkAdminToken:admin-api'],'namespace'=>'Api'], function() {
+    //مسار الادمن
+});
+

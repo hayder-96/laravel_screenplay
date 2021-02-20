@@ -10,20 +10,82 @@ use App\Mail\signupEmail;
 use App\Http\Resources\code as SC;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 class CodeController extends BaseController
 {
    
-    public function getcode($name)
+    public function getcode(Request $request)
     {
-        $users=code::all()->where('email',$name);
+        $users=code::where('email',$request->email)->first();
 
+        $code=crypt::decrypt($users->code);
+        if($code==$request->code){
+            
+            return $this->Respone(200,'done');
+
+        }
+        
+     
+        return $this->sendError('error');
        
-        return $this->Respone(SC::collection($users),'getAll');
     }
 
-   
+
+
+    public function getcoder(Request $request)
+    {
+        $users=code::where('email',$request->email)->first();
+
+        $code=crypt::decrypt($users->code);
+        if($code==$request->code){
+            
+            return $this->Respone(200,'done');
+
+        }
+        
+     
+        return $this->sendError('error');
+       
+    }
+
+
+
+
+
+
+
+
+
+
 
    
+
+    
+    public function getemail($email)
+    {
+        $users=code::where('email',$email)->first();
+
+            return $this->Respone(SC::collection($users),'done');
+
+        }
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function store(Request $request)
     {
         

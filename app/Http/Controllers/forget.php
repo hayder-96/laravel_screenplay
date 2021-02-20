@@ -18,6 +18,7 @@ use Facebook\Facebook;
 use NexmoMessage as GlobalNexmoMessage;
 use Vonage\Voice\NCCO\Action\Notify as ActionNotify;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
 class forget extends BaseController
 {
@@ -25,7 +26,7 @@ class forget extends BaseController
    
     public function store(Request $request){
 
-      $user=User::all()->where('email',$request->email);
+      $user=User::where('email',$request->email)->first();
       if($user->count()==0){
         return $this->Respone(500,'no');
         return;
@@ -46,19 +47,24 @@ class forget extends BaseController
         }
         
         $co=rand(10213,98974);
-        $input['code']=$co;
+       $op=Crypt::encrypt($co);
+       
+       $input['code']=$op;
+       
+      
+     
+     
+        
+      code::create($input);
 
-        code::create($input);
+       $email=$input['email'];
 
-         $email=$input['email'];
-
-        Mail::to($email)->send(new signupEmail($email,$co));
+       Mail::to($email)->send(new signupEmail($email,$co));
   
+        $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
 
-        return $this->Respone('done send',200);
-
-    
-
+        return $this->Respone($success,200);
+   
     }
 
 

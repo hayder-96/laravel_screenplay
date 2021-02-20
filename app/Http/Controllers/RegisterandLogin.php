@@ -9,7 +9,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\BaseController;
-
+use Exception;
+use Laravel\Passport\Passport;
 
 class RegisterandLogin extends Controller{
 
@@ -19,6 +20,7 @@ class RegisterandLogin extends Controller{
     public function Register(Request $request){
     $resp= new BaseController;
 
+    
     $validit=Validator::make($request->all(),[
 
         'name'=>'required',
@@ -46,6 +48,7 @@ class RegisterandLogin extends Controller{
 
     return $resp->Respone($success,'تم التسجيل ');
 
+    
 }
 
 public function Login(Request $request){
@@ -109,6 +112,7 @@ public function LoginFacebook(Request $request){
 
          
         $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+
 
             return $resp->Respone($success,"تم الدخول");
 

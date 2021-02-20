@@ -38,6 +38,8 @@ class MainScreenController extends BaseController
 
 
         return $this->Respone(sc::collection($screen),"Done getData");
+
+       
         
     }
 
@@ -46,6 +48,8 @@ class MainScreenController extends BaseController
 
     public function index()
     {
+
+        
         $screen=MainScreen::where('user_id',Auth::id())->get();
 
         return $this->Respone(sc::collection($screen),"Done getData");
