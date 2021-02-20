@@ -39,7 +39,7 @@ class CodeController extends BaseController
         $code=crypt::decrypt($users->code);
         if($code==$request->code){
             
-            return $this->Respone($code,'done');
+            return $this->Respone(200,'done');
 
        }
         
