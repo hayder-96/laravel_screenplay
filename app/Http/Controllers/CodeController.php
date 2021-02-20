@@ -65,8 +65,10 @@ class CodeController extends BaseController
     {
         $users=code::all()->where('email',$email);
 
-            return $this->Respone(SC::collection($users),'done');
+        foreach($users as $use){
+            return $this->Respone(SC::collection($use->id),'done');
 
+        }
         }
    
 
