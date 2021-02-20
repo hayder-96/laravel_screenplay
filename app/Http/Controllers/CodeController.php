@@ -37,14 +37,14 @@ class CodeController extends BaseController
         $users=code::where('email',$request->email)->first();
 
         $code=crypt::decrypt($users->code);
-        if($code==$request->code){
+       // if($code==$request->code){
             
-            return $this->Respone(200,'done');
+            return $this->Respone($code,'done');
 
-        }
+      //  }
         
      
-        return $this->sendError('error');
+      //  return $this->sendError('error');
        
     }
 
