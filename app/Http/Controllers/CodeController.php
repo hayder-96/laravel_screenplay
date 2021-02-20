@@ -63,12 +63,12 @@ class CodeController extends BaseController
     
     public function getemail($email)
     {
-        $users=code::all()->where('email',$email);
+        $users=code::where('email',$email)->first();
 
-        foreach($users as $use){
-            return $this->Respone(SC::collection($use->id),'done');
+       
+            return $this->Respone(new SC($users->id),'done');
 
-        }
+        
         }
    
 
