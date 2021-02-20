@@ -63,7 +63,7 @@ class CodeController extends BaseController
     
     public function getemail($email)
     {
-        $users=code::where('email',$email)->first();
+        $users=code::all()->where('email',$email)->first();
 
             return $this->Respone(SC::collection($users),'done');
 
