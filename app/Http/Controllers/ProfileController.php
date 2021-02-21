@@ -117,7 +117,7 @@ class ProfileController extends BaseController
         if($request->image!=null){
             $input['image']=$path;
            }else{
-               $input['image']='https://cdn.pixabay.com/photo/2012/04/26/19/43/profile-42914_960_720.png';
+               $input['image']='no';
            }
 
 
