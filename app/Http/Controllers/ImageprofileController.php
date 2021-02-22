@@ -42,11 +42,11 @@ class ImageprofileController extends BaseController
       //  $path= Cloudinary::upload($request->file('image')->getRealPath(), array("public_id" =>Auth::id()))->getSecurePath();
       //   $input['image']=$path;
       
-   //  $screen=imageprofile::create($input);
+     $screen=imageprofile::create($input);
   
          
   
-      return $this->Respone($input['user_id'],'Success input');
+      return $this->Respone($$screen,'Success input');
      // }
     }
 
