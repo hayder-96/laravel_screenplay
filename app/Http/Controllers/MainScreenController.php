@@ -64,64 +64,44 @@ class MainScreenController extends BaseController
 
         $input=$request->all();
         
-        $valdit=Validator::make($request->all(),[
+    //     $valdit=Validator::make($request->all(),[
           
-            'title'=>'required',
+    //         'title'=>'required',
            
            
-        ]);
+    //     ]);
 
-        if($valdit->fails()){
+    //     if($valdit->fails()){
 
-            return $this->sendError('Failed input',$valdit->errors());
-        }
+    //         return $this->sendError('Failed input',$valdit->errors());
+    //     }
 
 
 
-      if($request->image!=null){
+    //   if($request->image!=null){
         
-        
-       
-        
-       // $photo->move('uploads.posts',$newphoto);
-             
-      //$path=(new UploadApi())->upload($newphoto);
-
-      // $path=cloudinary()->upload($request->file($photo)->getRealPath())->getSecurePath();
-      
-      $path= Cloudinary::upload($request->file('image')->getRealPath(),
-      array("public_id" =>$request->title,"quality"=>'auto'))->getSecurePath();
+    
+    //   $path= Cloudinary::upload($request->file('image')->getRealPath(),
+    //   array("public_id" =>$request->title,"quality"=>'auto'))->getSecurePath();
      
-    }
+    // }
        
-      // $newphoto=time().$path->getClientOriginalName();
-      // $path=Storage::put('uploads.posts/',$newphoto);
-     // $fileName = $request->file('file')->getClientOriginalName();
+     
+    //     $user=Auth::user();
         
-   // $pa=cloudinary()->upload($request->file('image')->getRealPath())->getSecurePath();
-        
+    //     $input['user_id']=$user->id;
 
-   //Cloudinary::destroy('my_image', array("invalidate" => TRUE));
-
-
-
-   
-
-        $user=Auth::user();
-        
-        $input['user_id']=$user->id;
-
-        if($request->image!=null){
-         $input['image']=$path;
-         }else{
-             $input['image']='no';
-        }
+    //     if($request->image!=null){
+    //      $input['image']=$path;
+    //      }else{
+    //          $input['image']='no';
+    //     }
        
-        $screen=MainScreen::create($input);
+    //     $screen=MainScreen::create($input);
 
        
 
-        return $this->Respone($screen,'Success input');
+        return $this->Respone($request->title,'Success input');
         
     }
 
