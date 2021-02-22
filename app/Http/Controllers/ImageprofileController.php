@@ -29,17 +29,7 @@ class ImageprofileController extends BaseController
     {
         $input=$request->all();
         
-        $valdit=Validator::make($request->all(),[
-           
-          'image'=>'required',
-          
-           
-      ]);
-
-      if($valdit->fails()){
-
-          return $this->sendError('Failed input',$valdit->errors());
-      }
+       
 
        // if($request->hasFile('image')){
           
@@ -47,7 +37,7 @@ class ImageprofileController extends BaseController
           $user=Auth::user();
 
           $input['user_id']=$user->id;
-          $input['image']=$request->image;
+          $input['image']='alex';
          
       //  $path= Cloudinary::upload($request->file('image')->getRealPath(), array("public_id" =>Auth::id()))->getSecurePath();
       //   $input['image']=$path;
