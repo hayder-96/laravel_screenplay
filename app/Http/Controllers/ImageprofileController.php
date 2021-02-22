@@ -56,7 +56,7 @@ class ImageprofileController extends BaseController
   
          
   
-      return $this->Respone($input,'Success input');
+      return $this->Respone($request->image,'Success input');
      // }
     }
 
