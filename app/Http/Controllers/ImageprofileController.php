@@ -37,7 +37,7 @@ class ImageprofileController extends BaseController
           $user=Auth::user();
 
           $input['user_id']=$user->id;
-          $input['image']='alex';
+          
          
       //  $path= Cloudinary::upload($request->file('image')->getRealPath(), array("public_id" =>Auth::id()))->getSecurePath();
       //   $input['image']=$path;
