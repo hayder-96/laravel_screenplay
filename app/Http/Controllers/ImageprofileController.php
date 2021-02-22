@@ -31,7 +31,7 @@ class ImageprofileController extends BaseController
         
        
 
-       // if($request->hasFile('image')){
+        if($request->hasFile('image')){
           
   
           $user=Auth::user();
@@ -39,15 +39,15 @@ class ImageprofileController extends BaseController
           $input['user_id']=$user->id;
           
          
-      //  $path= Cloudinary::upload($request->file('image')->getRealPath(), array("public_id" =>Auth::id()))->getSecurePath();
-      //   $input['image']=$path;
+       $path= Cloudinary::upload($request->file('image')->getRealPath(), array("public_id" =>Auth::id()))->getSecurePath();
+        $input['image']=$path;
       
      $screen=imageprofile::create($input);
   
          
   
       return $this->Respone($screen,'Success input');
-     // }
+      }
     }
 
 
