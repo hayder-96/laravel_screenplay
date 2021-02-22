@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\imageprofile as im;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Password;
 
 class ImageprofileController extends BaseController
@@ -28,10 +29,17 @@ class ImageprofileController extends BaseController
     {
         $input=$request->all();
         
+        $valdit=Validator::make($request->all(),[
+           
+          'image'=>'required',
+          
+           
+      ]);
 
-        
-      
+      if($valdit->fails()){
 
+          return $this->sendError('Failed input',$valdit->errors());
+      }
 
        // if($request->hasFile('image')){
           
