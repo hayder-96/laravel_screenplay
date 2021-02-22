@@ -100,8 +100,9 @@ class MainScreenController extends BaseController
     //     $screen=MainScreen::create($input);
 
        
+        
 
-        return $this->Respone($request->title,'Success input');
+        return $this->Respone('$request->title','Success input');
         
     }
 
