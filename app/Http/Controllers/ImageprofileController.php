@@ -33,7 +33,7 @@ class ImageprofileController extends BaseController
       
 
 
-        if($request->hasFile('image')){
+       // if($request->hasFile('image')){
           
   
           $user=Auth::user();
@@ -49,7 +49,7 @@ class ImageprofileController extends BaseController
          
   
       return $this->Respone($screen,'Success input');
-      }
+     // }
     }
 
 
