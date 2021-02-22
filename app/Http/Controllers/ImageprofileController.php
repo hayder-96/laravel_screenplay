@@ -29,34 +29,34 @@ class ImageprofileController extends BaseController
     {
         $input=$request->all();
         
-      //   $valdit=Validator::make($request->all(),[
+        $valdit=Validator::make($request->all(),[
            
-      //     'image'=>'required',
+          'image'=>'required',
           
            
-      // ]);
+      ]);
 
-      // if($valdit->fails()){
+      if($valdit->fails()){
 
-      //     return $this->sendError('Failed input',$valdit->errors());
-      // }
+          return $this->sendError('Failed input',$valdit->errors());
+      }
 
-      //  // if($request->hasFile('image')){
+       // if($request->hasFile('image')){
           
   
-      //     $user=Auth::user();
+          $user=Auth::user();
 
-      //     $input['user_id']=$user->id;
-      //     $input['image']=$request->image;
+          $input['user_id']=$user->id;
+          $input['image']=$request->image;
          
-       // $path= Cloudinary::upload($request->file('image')->getRealPath(), array("public_id" =>Auth::id()))->getSecurePath();
-        //$input['image']=$path;
+      //  $path= Cloudinary::upload($request->file('image')->getRealPath(), array("public_id" =>Auth::id()))->getSecurePath();
+      //   $input['image']=$path;
       
-    //  $screen=imageprofile::create($input);
+     $screen=imageprofile::create($input);
   
          
   
-      return $this->Respone($request->image,'Success input');
+      return $this->Respone($screen,'Success input');
      // }
     }
 

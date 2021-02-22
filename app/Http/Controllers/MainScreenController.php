@@ -64,45 +64,45 @@ class MainScreenController extends BaseController
 
         $input=$request->all();
         
-    //     $valdit=Validator::make($request->all(),[
+        $valdit=Validator::make($request->all(),[
           
-    //         'title'=>'required',
+            'title'=>'required',
            
            
-    //     ]);
+        ]);
 
-    //     if($valdit->fails()){
+        if($valdit->fails()){
 
-    //         return $this->sendError('Failed input',$valdit->errors());
-    //     }
+            return $this->sendError('Failed input',$valdit->errors());
+        }
 
 
 
-    //   if($request->image!=null){
+      if($request->image!=null){
         
     
-    //   $path= Cloudinary::upload($request->file('image')->getRealPath(),
-    //   array("public_id" =>$request->title,"quality"=>'auto'))->getSecurePath();
+      $path= Cloudinary::upload($request->file('image')->getRealPath(),
+      array("public_id" =>$request->title,"quality"=>'auto'))->getSecurePath();
      
-    // }
+    }
        
      
-    //     $user=Auth::user();
+        $user=Auth::user();
         
-    //     $input['user_id']=$user->id;
+        $input['user_id']=$user->id;
 
-    //     if($request->image!=null){
-    //      $input['image']=$path;
-    //      }else{
-    //          $input['image']='no';
-    //     }
+        if($request->image!=null){
+         $input['image']=$path;
+         }else{
+             $input['image']='no';
+        }
        
-    //     $screen=MainScreen::create($input);
+        $screen=MainScreen::create($input);
 
        
         
 
-        return $this->Respone('$request->title','Success input');
+        return $this->Respone($screen,'Success input');
         
     }
 
