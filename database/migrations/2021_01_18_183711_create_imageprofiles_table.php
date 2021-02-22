@@ -17,7 +17,7 @@ class CreateImageprofilesTable extends Migration
             $table->bigIncrements('id');
             $table->string('image');
             $table->unsignedBigInteger('user_id')->unique();
-            $table->foreign('user_id')->references('id')->on('profiles')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
