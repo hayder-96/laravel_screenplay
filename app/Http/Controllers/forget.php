@@ -26,38 +26,38 @@ class forget extends BaseController
    
     public function store(Request $request){
 
-      $user=User::where('email',$request->email)->first();
-      if($user->count()==0){
-        return $this->Respone(500,'no');
-        return;
-      }
+    //   $user=User::where('email',$request->email)->first();
+    //   if($user->count()==0){
+    //     return $this->Respone(500,'no');
+    //     return;
+    //   }
 
-        $input=$request->all();
+    //     $input=$request->all();
       
-        $valdit=Validator::make($request->all(),[
+    //     $valdit=Validator::make($request->all(),[
            
-            'email'=>'required',
+    //         'email'=>'required',
             
              
-        ]);
+    //     ]);
 
-        if($valdit->fails()){
+    //     if($valdit->fails()){
 
-            return $this->sendError('Failed input',$valdit->errors());
-        }
+    //         return $this->sendError('Failed input',$valdit->errors());
+    //     }
         
-        $co=rand(10213,98974);
-       $op=Crypt::encrypt($co);
+    //     $co=rand(10213,98974);
+    //    $op=Crypt::encrypt($co);
        
-       $input['code']=$op;
+    //    $input['code']=$op;
        
       
      
      
         
-      code::create($input);
+    //   code::create($input);
 
-       $email=$input['email'];
+    //    $email=$input['email'];
 
       // Mail::to($email)->send(new signupEmail($email,$co));
   
