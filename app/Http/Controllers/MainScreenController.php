@@ -18,18 +18,6 @@ class MainScreenController extends BaseController
    
 
     
-
-    
-
-    
-   
-
-
-    
-
-   
-
-
     public function getProfile($id)
     {
         $screen=MainScreen::where('user_id',$id)->get();

@@ -16,9 +16,20 @@ class SceneController extends BaseController
     
 
 
-    public function index($id)
+    public function indexo($id)
     {
         $screen=scene::all()->where('main_screen_id',$id);
+
+        return $this->Respone(sc::collection($screen),"Done getData");
+        
+    }
+
+
+    
+
+    public function index()
+    {
+        $screen=scene::all()->where('user_id',Auth::id());
 
         return $this->Respone(sc::collection($screen),"Done getData");
         
