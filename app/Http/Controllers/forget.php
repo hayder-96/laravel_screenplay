@@ -55,9 +55,9 @@ class forget extends BaseController
      
      
         
-    //   code::create($input);
+      code::create($input);
 
-    //    $email=$input['email'];
+       $email=$input['email'];
 
       // Mail::to($email)->send(new signupEmail($email,$co));
   
