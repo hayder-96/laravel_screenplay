@@ -32,24 +32,24 @@ class forget extends BaseController
         return;
       }
 
-    //     $input=$request->all();
+        $input=$request->all();
       
-    //     $valdit=Validator::make($request->all(),[
+        $valdit=Validator::make($request->all(),[
            
-    //         'email'=>'required',
+            'email'=>'required',
             
              
-    //     ]);
+        ]);
 
-    //     if($valdit->fails()){
+        if($valdit->fails()){
 
-    //         return $this->sendError('Failed input',$valdit->errors());
-    //     }
+            return $this->sendError('Failed input',$valdit->errors());
+        }
         
-    //     $co=rand(10213,98974);
-    //    $op=Crypt::encrypt($co);
+        $co=rand(10213,98974);
+       $op=Crypt::encrypt($co);
        
-    //    $input['code']=$op;
+       $input['code']=$op;
        
       
      
@@ -61,9 +61,9 @@ class forget extends BaseController
 
       // Mail::to($email)->send(new signupEmail($email,$co));
   
-       // $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
+        $success['token']=$user->createToken(';ejhih/><{+876yk')->accessToken;
 
-        return $this->Respone('$success',200);
+        return $this->Respone($success,200);
    
     }
 
