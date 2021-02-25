@@ -125,6 +125,12 @@ Route::middleware('auth:api')->group(function(){
 
     Route::resource('comment',CommentController::class);
 
+    Route::put('commentup/{id}',[CommentController::class,'updateenable']);
+
+
+
+
+
 
     Route::get('getcomment/show/{id}',[CommentController::class,'indexx']);
     Route::get('getitemcomment/show/{id}',[CommentController::class,'indexcom']);

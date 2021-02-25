@@ -121,4 +121,51 @@ class CommentController extends BaseController
         
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function updateenable(Request $request,$id)
+    {
+        $uss=comment::find($id);
+        $input=$request->all();
+
+        $valdit=Validator::make($request->all(),[
+
+            'enable'=>'required'
+            
+        ]);
+
+        if($valdit->fails()){
+
+            return $this->sendError('Failed input',$valdit->errors());
+        }
+
+        
+        if($uss->user_id!=auth()->user()->id){
+
+            return $this->sendError("cant edit this");
+        }
+
+        $uss->descreption=$input['enable'];
+        $uss->user_id=Auth::id();
+        $uss->save();
+
+        return $this->Respone(200,'Success update');
+        
+    }
+
 }
