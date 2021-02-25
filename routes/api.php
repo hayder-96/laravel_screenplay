@@ -99,9 +99,22 @@ Route::middleware('auth:api')->group(function(){
     Route::resource('message',MessageController::class);
     Route::get('Messages',[MessageController::class,'getMessage']);
     
+
+    
     Route::resource('friend',FriendController::class);
     Route::post('getfriend',[FriendController::class,'input']);
     Route::get('getitemfriend/show/{id}',[FriendController::class,'getItem']);
+    Route::get('getitemname',[FriendController::class,'indexname']);
+
+
+
+
+
+
+
+
+
+
 
 
     Route::resource('like',LikeController::class);

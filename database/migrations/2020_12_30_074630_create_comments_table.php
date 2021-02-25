@@ -21,6 +21,7 @@ class CreateCommentsTable extends Migration
             $table->longText('descreption');
             $table->string('image');
             $table->string('name');
+            $table->string('enable');
             $table->foreign('main_screen_id')->references('id')->on('main_screens')->onDelete('cascade');
             $table->foreign('parent_id')->references('id')->on('comments')->onDelete('cascade');
             $table->timestamps();
