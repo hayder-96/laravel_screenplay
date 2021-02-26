@@ -28,9 +28,9 @@ class FriendController extends BaseController
     {
         
 
-        $user=fr::where('name_id',Auth::id())->where('visibl','yes')->where('user_id',$id);
+        $user=fr::all()->where('name_id',Auth::id())->where('visibl','yes')->where('user_id',$id);
 
-        if($user!=null){
+        if($user!=count(0)){
         return $this->Respone(200,'yes');
         
         }else{
