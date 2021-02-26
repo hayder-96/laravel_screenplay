@@ -24,14 +24,18 @@ class FriendController extends BaseController
     }
 
 
-    public function indexname()
+    public function indexname($id)
     {
         
 
-        $user=fr::all()->where('name_id',Auth::id())->where('visibl','yes');
+        $user=fr::where('name_id',Auth::id())->where('visibl','yes')->where('user_id',$id);
 
-        return $this->Respone(sc::collection($user),'Success Show');
-
+        if($user!=null){
+        return $this->Respone(200,'yes');
+        
+        }else{
+            return $this->Respone(200,'no'); 
+        }
 
     }
 
