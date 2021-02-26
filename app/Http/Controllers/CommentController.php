@@ -143,26 +143,26 @@ class CommentController extends BaseController
         $uss=comment::find($id);
         $input=$request->all();
 
-        // $valdit=Validator::make($request->all(),[
+        $valdit=Validator::make($request->all(),[
 
-        //     'enable'=>'required'
+            'name'=>'required'
             
-        // ]);
+        ]);
 
-        // if($valdit->fails()){
+        if($valdit->fails()){
 
-        //     return $this->sendError('Failed input',$valdit->errors());
-        // }
+            return $this->sendError('Failed input',$valdit->errors());
+        }
 
         
-        // if($uss->user_id!=auth()->user()->id){
+        if($uss->user_id!=auth()->user()->id){
 
-        //     return $this->sendError("cant edit this");
-        // }
+            return $this->sendError("cant edit this");
+        }
 
-        // $uss->enable=$input['enable'];
-        // $uss->user_id=Auth::id();
-        // $uss->save();
+        $uss->name=$input['name'];
+        $uss->user_id=Auth::id();
+        $uss->save();
 
         return $this->Respone($uss,'Success update');
         
