@@ -162,7 +162,7 @@ class CommentController extends BaseController
     //     $uss->enable=$input['enable'];
     //    $uss->save();
 
-        return $this->Respone($uss->enable,'Success update');
+        return $this->Respone($uss->name,'Success update');
         
     }
 
