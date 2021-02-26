@@ -145,7 +145,7 @@ class CommentController extends BaseController
 
         $valdit=Validator::make($request->all(),[
 
-            'name'=>'required'
+            'enable'=>'required'
             
         ]);
 
@@ -154,17 +154,16 @@ class CommentController extends BaseController
             return $this->sendError('Failed input',$valdit->errors());
         }
 
-        
         if($uss->user_id!=auth()->user()->id){
 
             return $this->sendError("cant edit this");
         }
 
-        $uss->name=$input['name'];
+        $uss->enable=$input['enable'];
         $uss->user_id=Auth::id();
         $uss->save();
 
-        return $this->Respone($uss,'Success update');
+        return $this->Respone(new SC($uss),'Success update');
         
     }
 
