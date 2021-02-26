@@ -160,7 +160,7 @@ class CommentController extends BaseController
         }
 
         $uss->enable=$input['enable'];
-        $uss->save();
+       // $uss->save();
 
         return $this->Respone(new SC($uss),'Success update');
         
