@@ -160,7 +160,7 @@ class CommentController extends BaseController
             return $this->sendError("cant edit this");
         }
 
-        $uss->descreption=$input['enable'];
+        $uss->enable=$input['enable'];
         $uss->user_id=Auth::id();
         $uss->save();
 
