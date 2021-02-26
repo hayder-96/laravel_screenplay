@@ -16,7 +16,8 @@ class comment extends Model
         'parent_id',
         'descreption',
         'name',
-        'image'
+        'image',
+        'enable'
     ];
 
     
