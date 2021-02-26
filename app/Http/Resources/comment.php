@@ -24,6 +24,7 @@ class comment extends JsonResource
          'descreption'=>$this->descreption,
              'name'=>$this->name,
              'image'=>$this->image,
+             'enable'=>$this->enable,
              'created_at'=>$this->created_at->format('d/m/Y'),
     ];
     }
