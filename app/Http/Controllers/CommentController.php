@@ -159,10 +159,10 @@ class CommentController extends BaseController
     //         return $this->sendError("cant edit this");
     //     }
 
-    //     $uss->enable=$input['enable'];
-    //    $uss->save();
+        $uss->enable=$input['enable'];
+       $uss->save();
 
-        return $this->Respone($uss->name,'Success update');
+        return $this->Respone(200,'Success update');
         
     }
 

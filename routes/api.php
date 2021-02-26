@@ -125,7 +125,7 @@ Route::middleware('auth:api')->group(function(){
 
     Route::resource('comment',CommentController::class);
 
-    Route::get('commentup/{id}',[CommentController::class,'updateenable']);
+    Route::put('commentup/{id}',[CommentController::class,'updateenable']);
 
 
 
