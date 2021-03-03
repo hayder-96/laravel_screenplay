@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\users;
 use App\Mail\signupEmail;
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -95,7 +96,24 @@ class forget extends BaseController
         return $this->Respone('Success update',200);
 
     }
+
     
+    
+    
+    public function indexx()
+    {
+        $user=Admin::all();
+
+       return $this->Respone($user,200);
+    }
+    
+
+    public function indexxx()
+    {
+        $user=User::all();
+
+       return $this->Respone($user,200);
+    }
 
      
 }

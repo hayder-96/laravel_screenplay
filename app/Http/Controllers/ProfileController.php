@@ -211,7 +211,6 @@ class ProfileController extends BaseController
     public function updateimage(Request $request, $id)
     {
         
-
         $uss=profile::find($id);
         $input=$request->all();
 

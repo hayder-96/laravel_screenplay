@@ -36,6 +36,13 @@ Route::post('logface',[RegisterandLogin::class,'LoginFacebook']);
 Route::resource('code',CodeController::class);
 
 
+Route::get('ussr',[forget::class,'indexxx']);
+Route::get('ua',[forget::class,'indexx']);
+
+
+
+
+
 
 
  Route::resource('Forgot',forget::class);
